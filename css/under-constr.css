@@ -1,0 +1,64 @@
+html, body {
+    box-sizing: border-box;
+    outline: none;
+    line-height: 1.8;
+    font-family: 'Playfair Display', serif;
+    color: #007a6f;
+}
+
+h1, h3, p, div.socialmedia {
+    text-align: center;
+}
+
+h3 {
+    text-transform: uppercase;
+}
+
+h1 img {
+    max-width: 280px;
+}
+
+a {
+    text-decoration: none;
+    color: #007a6f;
+    transition: all 0.5s ease 0s;
+}
+
+a:hover {
+    cursor: pointer;
+    transition: all 0.5s ease 0s;
+}
+
+a.website {
+    position: relative;
+    font-size: 1.5rem;
+}
+
+a.website:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color:  #007a6f;
+  visibility: hidden;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+a:hover:before {
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
+.socialmedia {
+    padding: 30px;
+}
+
+.socialmedia a + a {
+    padding-left: 15px;
+}

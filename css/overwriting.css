@@ -1,0 +1,188 @@
+.bg-dark {
+    background: #22786f;
+}
+
+.rd-navbar-static .rd-navbar-nav > li.focus > a,
+.rd-navbar-static .rd-navbar-nav > li > a:hover,
+.rd-navbar-static .rd-navbar-nav > li.active > a,
+.rd-navbar-fullwidth .rd-navbar-nav > li.focus > a,
+.rd-navbar-fullwidth .rd-navbar-nav > li > a:hover,
+.rd-navbar-fullwidth .rd-navbar-nav > li.active > a {
+    color: #22786f;
+}
+
+section hr{
+  background: #bbe1e6;
+}
+
+.verticaly-centered{
+  margin: 2rem auto;
+}
+
+img.products{
+  max-width: 100%;
+}
+
+.bordered{
+  border: 2px solid #FFFFFF;
+}
+
+.overflow-h{
+  overflow: hidden;
+}
+
+article.blog-post .article-column-text{
+  padding-bottom:50em;
+  margin-bottom:-48em;
+}
+
+article.blog-post .article-column-img{
+  padding-bottom:50em;
+  margin-bottom:-50em;
+}
+
+article.blog-post .article-column-img img{
+  margin-top: 19vh;
+  -ms-transform: translateY(-40%);
+  -moz-transform: translateY(-40%);
+  -webkit-transform: translateY(-40%);
+  transform: translateY(-40%);
+}
+
+#logo-text{
+  display:none;
+}
+
+#logo-small{
+  max-width: 80%;
+}
+
+/* PRODUCTS */
+section#products,
+section#selling{
+  line-height: 1.5rem;
+}
+
+.video-container {
+	position: relative;
+	padding-bottom: 45%;
+	padding-top: 30px;
+	height: 0;
+	overflow: hidden;
+  margin: 3rem auto 0;
+  max-width: 100%;
+  float: none;
+  clear: both;
+}
+
+.video-container iframe,
+.video-container object,
+.video-container embed {
+	position: absolute;
+	top: 0;
+	left: 0;
+  margin: 0 10%;
+	width: 80%;
+	height: 80%;
+}
+
+/* SELLING */
+
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus{
+  border: none;
+  background-color: #fff;
+  color: #22786f;
+}
+
+.nav > li > a:hover{
+  border: none;
+  background-color: #fff;
+  color: #22786f;
+}
+
+/* PRESTATIONS */
+.pricing-box .btn:hover, .pricing-box.row-no-gutter .btn:hover{
+  border-color: #22786f;
+}
+#prestations {
+    border-bottom: 1px solid #22786f;
+}
+
+/* RESPONSIVE */
+
+@media screen and (max-width: 768px){
+
+  #logo-text{
+    display: block;
+    max-width: 30%;
+    padding-top: 3px;
+  }
+
+  #logo-small{
+    display:none;
+  }
+}
+
+/**************/
+
+/* hr */
+hr, .jumbotron h1::before {
+    background: #fff;
+}
+
+/* mosaïque */
+.img-thumbnail .overlay {
+    background-color: #22786f;
+}
+.mosaique div img {
+    width: 100%;
+}
+
+/* section pastilles */
+.box-hover-1 .icon {
+    border-color: #22786f;
+    color: #22786f;
+}
+.box-hover-1:hover .icon {
+	border-color: #22786f;
+	background: #22786f;
+}
+h4 a:hover {
+    color: #22786f;
+}
+
+/* partenaires */
+.client {
+    max-width: 50%;
+}
+
+/* bouton pour revenir en haut */
+.ui-to-top {
+	background: #22786f;
+}
+.ui-to-top:hover {
+	background: #1c6b63;
+}
+
+/* contact */
+.contact-form a:hover {
+    color: #22786f;
+}
+.contact-form .btn:hover {
+    background: #22786f;
+}
+.contact-form .btn {
+    border-color: #22786f;
+}
+
+/*dropdown*/
+.rd-navbar-static .rd-navbar-nav > li > .rd-navbar-dropdown {
+    color: #fff;
+    background: #22786f;
+}
+.rd-navbar-static .rd-navbar-nav > li > .rd-navbar-dropdown a:hover {
+    color: #222;
+    transition: all 0.4s ease 0s;
+}
