@@ -7,7 +7,8 @@ function url($uri){
 	"%s://%s%s%s",
 	isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http',  // renvoi http ou https
 	$_SERVER['SERVER_NAME'],  // renvois le nom de domaine (ex localhost ou mondomaine.com)
-	$_SERVER['SERVER_NAME'] == 'localhost' ? ':8888/Paparazza/paparazza/' : '',
+	// $_SERVER['SERVER_NAME'] == 'localhost' ? ':8888/Paparazza/paparazza/' : '',
+	$_SERVER['SERVER_NAME'] == 'localhost' ? '/paparazza/PreProd/' : '',
 	$uri
 	);
 }
@@ -20,12 +21,6 @@ function randString($length) { // cette fonction servira à générer le jetton 
 		$randomString .= $characters[rand(0, $charactersLength - 1)];
 	}
 	return $randomString;
-}
-
-function monthFormat($month){
-	$annee = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
-	$position = array_search($month, $annee) + 1;
-	return $position < 10? '0' . $position: $position;
 }
 
 function redirect($url){

@@ -7,7 +7,8 @@
       "psr-4":
       {
         "Projet\\": "app",
-        "System\\": "system"
+        "System\\": "system",
+        "Models\\": "app"
       },
       "files":
       [

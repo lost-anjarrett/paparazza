@@ -2,15 +2,16 @@
 
 namespace Projet\Controllers;
 
-class PageController extends \System\Controller{
+class PageController extends \System\Controller
+{
 
-  //@get index.php/landing
+    //@get index.php/landing
 
-  public function index(){
+    public function index()
+    {
+        $datas = [];
 
-    $datas = [];
-
-    return $this->view('pages/products');
-  }
+        return $this->view('pages/products');
+    }
 
 }

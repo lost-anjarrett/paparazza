@@ -19,19 +19,20 @@ abstract class Controller{
     //     return $this->user;
     // }
 
-    public function view($template, $datas = []){
+    public function view($template, $datas = [])
+    {
 
-    extract($datas);
+        extract($datas);
 
-    ob_start();
+        ob_start();
 
-    include(__DIR__ . '/../ressources/views/landing.phtml');
+        include(__DIR__ . '/../ressources/views/landing.phtml');
 
-    $view = ob_get_contents();
+        $view = ob_get_contents();
 
-    ob_end_clean();
+        ob_end_clean();
 
-    return $view;
+        return $view;
 
     }
 
