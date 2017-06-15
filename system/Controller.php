@@ -37,5 +37,10 @@ abstract class Controller{
     }
 
 
+    public function redirect($location)
+    {
+        header('location: '.url($location));
+        exit;
+    }
 
 }

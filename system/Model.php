@@ -84,7 +84,7 @@ abstract class Model {
 
         $paramsList = ':' . implode(', :', $columns);  // ":name, :birthday, :email ,:password, :city"
 
-        $sql = "INSERT INTO ". static::TABLE ." (". $columnsList  . ", created_at) VALUES (". $paramsList . ", NOW())";
+        $sql = "INSERT INTO ". static::TABLE ." (". $columnsList  . ") VALUES (". $paramsList . ")";
 
         $this->db->execute($sql, $datas);
 
@@ -100,7 +100,7 @@ abstract class Model {
     {
         $datas = $this->toArray();
 
-        unset($datas['updated_at'], $datas['created_at']);
+        // unset($datas['updated_at'], $datas['created_at']);
 
 
         $columns = array_keys($datas);  // ['id','name', 'birthday','email','password','created_at']
@@ -113,7 +113,7 @@ abstract class Model {
 
         }
 
-        $sql .= "updated_at = NOW() WHERE id = :id";
+        // $sql .= "updated_at = NOW() WHERE id = :id";
 
 
         $this->db->execute($sql, $datas);
@@ -153,7 +153,7 @@ abstract class Model {
 
             $collection = [];
 
-            foreach ($results as $result){ 
+            foreach ($results as $result){
 
                 $collection[] = $this->getInstance($result);
 

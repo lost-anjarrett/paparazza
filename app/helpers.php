@@ -8,7 +8,7 @@ function url($uri){
 	isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http',  // renvoi http ou https
 	$_SERVER['SERVER_NAME'],  // renvois le nom de domaine (ex localhost ou mondomaine.com)
 	// $_SERVER['SERVER_NAME'] == 'localhost' ? ':8888/Paparazza/paparazza/' : '',
-	$_SERVER['SERVER_NAME'] == 'localhost' ? '/paparazza/PreProd/' : '',
+	$_SERVER['SERVER_NAME'] == 'localhost' ? '/paparazza/paparazza/' : '',
 	$uri
 	);
 }
@@ -24,12 +24,12 @@ function randString($length) { // cette fonction servira à générer le jetton 
 }
 
 function redirect($url){
-	header('location:' . url($url));
+	header('location:' . $url);
 	exit;
 }
 
 function isLogged(){
-	return isset($_SESSION['userId']);
+	return isset($_SESSION['admin']);
 }
 
 function checkCsrf(){

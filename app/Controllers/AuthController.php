@@ -2,7 +2,7 @@
 
 namespace Projet\Controllers;
 
-use Models\Admin;
+use Projet\Models\Admin;
 
 class AuthController extends \System\Controller
 {
@@ -16,13 +16,34 @@ class AuthController extends \System\Controller
 
             $admin = (new Admin)->findOneBy('name', $name);
 
-            /*
-                verif password
-                ...
-            */
+            if (!$admin || !password_verify($password, $admin->getPassword()) ) {
+                $error = 'Le nom d\'utilisateur n\'existe pas ou le mot de passe est incorrect';
+            }
+
+            if(!isset($error)) {
+                session_start();
+                $admin->logConnexion();
+                $_SESSION['admin'] = $admin;
+                $_SESSION['csrf_token'] = randString(50);
+                $this->redirect('admin/dashboard');
+            }
         }
 
-        return $this->view('pages/products');
+        ob_start();
+        include(__DIR__.'/../../ressources/views/auth/login.phtml');
+        $view = ob_get_clean();
+
+        return $view;
+    }
+
+
+    public function logout()
+    {
+        $_SESSION = [];
+
+        session_destroy();
+
+        $this->redirect('home');
     }
 
 }

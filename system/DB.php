@@ -1,7 +1,6 @@
 <?php
 namespace System;
 
- (PDO, DateTime, etc)
 use PDO;
 
 class DB

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 14, 2017 at 04:21 PM
+-- Generation Time: Jun 15, 2017 at 11:10 AM
 -- Server version: 5.7.18-0ubuntu0.16.04.1
 -- PHP Version: 7.0.18-0ubuntu0.16.04.1
 
@@ -29,17 +29,17 @@ SET time_zone = "+00:00";
 CREATE TABLE `ppz_admin` (
   `id` tinyint(4) NOT NULL,
   `name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `password` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `password` char(60) COLLATE utf8_unicode_ci NOT NULL,
   `doc` datetime NOT NULL,
-  `last_connection` datetime DEFAULT NULL
+  `last_connexion` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `ppz_admin`
 --
 
-INSERT INTO `ppz_admin` (`id`, `name`, `password`, `doc`, `last_connection`) VALUES
-(2, 'admin', 'yg1234', '2017-06-14 00:00:00', NULL);
+INSERT INTO `ppz_admin` (`id`, `name`, `password`, `doc`, `last_connexion`) VALUES
+(3, 'ppzadmin', '$2y$10$3R694GUE3BM/A6WdfSDlReIpVp13ACxx9nuWOtpPWQQgJ8bTddzT.', '2017-06-15 11:06:10', '2017-06-15 11:08:05');
 
 -- --------------------------------------------------------
 
@@ -184,7 +184,7 @@ ALTER TABLE `ppz_products_logos`
 -- AUTO_INCREMENT for table `ppz_admin`
 --
 ALTER TABLE `ppz_admin`
-  MODIFY `id` tinyint(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` tinyint(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `ppz_gallery_img`
 --
