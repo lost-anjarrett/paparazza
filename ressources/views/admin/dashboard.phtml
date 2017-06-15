@@ -1,28 +1,114 @@
-<pre>
-    <?php var_dump($_SESSION); ?>
-</pre>
+<!DOCTYPE html>
+<html lang="en" class="wide wow-animation">
+  <head>
+    <!--Site Title-->
+    <title>Paparazza</title>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
-<section>
-    <form class="text-center" method="post">
-        <input type="text" name="name" placeholder="Nom d'utilisateur">
-        <input type="password" name="password" placeholder="Mot de passe">
-        <input type="password" name="confirmPassword" placeholder="Confirmer mot de passe">
-        <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
-        <input type="submit" value="Envoyer">
-    </form>
+    <!--Stylesheets-->
+    <link rel="icon" href="<?= url('ressources/images/client_src/logo-small.png')?>" type="image/x-icon">
 
-    <?php if (isset($error)) : ?>
-        <div class="bg-error text-center">
-                <p><?= $error ?></p>
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="<?= url('ressources/css/style.css')?>">
+    <link rel="stylesheet" href="<?= url('ressources/css/overwriting.css')?>">
+<!--[if lt IE 10]>
+    <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;"><a href="http://windows.microsoft.com/en-US/internet-explorer/.."><img src="images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
+    <script src="js/html5shiv.min.js"></script><![endif]-->
+  </head>
+
+  <body>
+    <!--The Main Wrapper-->
+    <div class="page">
+      <!--
+      ========================================================
+                              HEADER
+      ========================================================
+      -->
+      <header class="page-header">
+
+        <!--RD Navbar-->
+        <div class="rd-navbar-wrap">
+          <nav class="rd-navbar bg-white top-panel-none-items" data-lg-device-layout="rd-navbar-static" data-layout="rd-navbar-fixed" data-hover-on="false" data-stick-up="false" data-sm-layout="rd-navbar-fullwidth">
+            <div class="rd-navbar-inner">
+
+              <!--RD Navbar Panel-->
+              <div class="rd-navbar-panel">
+
+                <!--RD Navbar Toggle-->
+                <button data-rd-navbar-toggle=".rd-navbar" class="rd-navbar-toggle"><span></span></button>
+                <!--END RD Navbar Toggle-->
+
+                <!--RD Navbar Brand-->
+                <div class="rd-navbar-brand"><a href="#" class="brand-name">
+                    <img id="logo-small" src="<?= url('ressources/images/logo-small.png')?>" style="text-center" alt="">
+                    <img id="logo-text" src="<?= url('ressources/images/logo-txt.png')?>" style="text-center" alt="">
+                </a></div>
+                <!--END RD Navbar Brand-->
+              </div>
+              <!--END RD Navbar Panel-->
+
+              <div class="rd-navbar-nav-wrap">
+
+
+                <!--RD Navbar Nav-->
+                <ul class="rd-navbar-nav">
+                  <li><a href="<?= url('admin/dashboard') ?>">Accueil</a></li>
+                  <li><a href="<?= url() ?>">Administration</a>
+                      <ul class="rd-navbar-dropdown">
+                          <li><a href="<?= url('admin/manage-admin') ?>">Gestion administrateurs</a></li>
+                          <li><a href="<?= url('admin/infos') ?>">Infos publiques</a></li>
+                      </ul>
+                  </li>
+                  <li><a href="<?= url('admin/slider') ?>">Slider</a></li>
+                  <li><a href="<?= url('admin/gallery') ?>">Galerie Photo</a></li>
+                  <li><a href="<?= url('admin/products') ?>">Produits</a></li>
+                  <li><a href="<?= url('logout') ?>">Déconnexion</a></li>
+                </ul>
+                <!--END RD Navbar Nav-->
+              </div>
+            </div>
+          </nav>
         </div>
-    <?php endif; ?>
+        <!--END RD Navbar-->
 
-    <?php if (isset($success)) : ?>
-        <div class="bg-info text-center">
-                <p><?= $success ?></p>
-        </div>
-    <?php endif; ?>
+      </header>
+      <!--
+      ========================================================
+                              CONTENT
+      ========================================================
+      -->
+      <main class="page-content undefined">
 
-</section>
 
-<a href="<?= url('logout') ?>">Déconnexion</a>
+        <!-- Start section -->
+        <section class="well well-sm page-sample">
+          <div class="container container-wide">
+          </div>
+      </section>
+
+
+
+      </main>
+      <!--
+      ========================================================
+                              FOOTER
+      ========================================================
+      -->
+
+      <footer class="page-footer footer-centered text-center bg-dark">
+
+      </footer>
+
+    </div>
+    <!--Core Scripts-->
+    <script src="<?= url('ressources/js/core.min.js')?>"></script>
+    <!--jQuery (necessary for Bootstrap's JavaScript plugins)-->
+    <!--Include all compiled plugins (below), or include individual files as needed-->
+    <script src="<?= url('ressources/js/bootstrap.min.js')?>"></script>
+    <!--Additional Functionality Scripts-->
+    <script src="<?= url('ressources/js/script.js')?>"></script>
+    <script src="<?= url('ressources/js/overwriting.js')?>"></script>
+  </body>
+</html>

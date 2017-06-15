@@ -7,7 +7,7 @@ class AdminController extends \System\Controller
 {
 
 
-    public function main()
+    public function create()
     {
         if (!isLogged()) {
             redirect('home');
@@ -46,7 +46,7 @@ class AdminController extends \System\Controller
         }
 
         ob_start();
-        include(__DIR__.'/../../ressources/views/admin/dashboard.phtml');
+        include(__DIR__.'/../../ressources/views/admin/add-admin.phtml');
         $view = ob_get_clean();
 
         return $view;

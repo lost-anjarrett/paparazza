@@ -66,6 +66,9 @@
                   <li><a href="#prestations">Nos Prestations</a></li>
                   <li><a href="#contact">Contact</a></li>
                   <li><a href="#selling">Vente</a></li>
+                  <?php if (isLogged()): ?>
+                      <li><a href="<?= url('logout') ?>">Déconnexion</a></li>
+                  <?php endif; ?>
                 </ul>
                 <!--END RD Navbar Nav-->
               </div>
