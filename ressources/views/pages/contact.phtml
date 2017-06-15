@@ -1,0 +1,59 @@
+<section id="contact" class="contact-form text-center text-sm-left well well-sm">
+  <div class="container container-wide">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 text-center well-bottom">
+        <h1>CONTACTEZ NOUS</h1>
+        <hr>
+        <p>Nos services vous intéressent ? Contactez-nous via le formulaire ci-dessous et nous vous répondrons dans les plus brefs délais.</p>
+      </div>
+      <div class="col-xs-12">
+        <div class="row flow-offset-3">
+          <div class="col-md-3 col-md-offset-1 text-center text-md-left">
+            <div class="contact-info-2">
+              <h4>Addresse</h4>
+              <address class="small text-darker">Pôle Pixel, 26 rue Emile Decorps<br>Bâtiment Minoterie<br>Villeurbanne, 69100</address>
+              <h4>Téléphone</h4>
+              <address class="small text-darker"><a href="callto:#">06 70 53 48 90</a></address>
+              <h4>Email</h4>
+              <address class="small text-darker"><a href="mailto:#">contact@paparazza.fr</a></address>
+            </div>
+            <ul class="list-inline big text-dark">
+              <li><a href="https://www.instagram.com/paparazza_lyon" class="fa-instagram"></a></li>
+              <li><a href="#" class="fa-linkedin"></a></li>
+              <li><a href="https://fr-fr.facebook.com/bornesconnectees" class="fa-facebook"></a></li>
+            </ul>
+          </div>
+          <div class="col-md-7">
+            <form method="post" action="bat/rd-mailform.php" class="rd-mailform">
+              <!--RD Mailform Type-->
+              <input type="hidden" name="form-type" value="contact">
+              <!--END RD Mailform Type-->
+              <div class="form-group">
+                <label for="exampleInputText1"></label>
+                <input type="text" placeholder="Votre Nom" name="name" data-constraints="@NotEmpty @LettersOnly" id="exampleInputText1" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1"></label>
+                <input placeholder="Votre email" type="text" name="email" data-constraints="@NotEmpty @Email" id="exampleInputEmail1" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputText2"></label>
+                <input type="text" placeholder="Téléphone" name="tel" data-constraints="@NotEmpty " id="exampleInputText2" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputText3"></label>
+                <input type="text" placeholder="Date et type de l'évènement" name="date_type" data-constraints="@NotEmpty " id="exampleInputText3" class="form-control">
+              </div>
+              <div class="form-group textarea">
+                <label for="exampleTextarea"></label>
+                <textarea id="exampleTextarea" rows="3" placeholder="Votre message ici..." name="message" data-constraints="@NotEmpty" class="form-control"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Envoyer</button>
+              <div class="mfInfo"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
