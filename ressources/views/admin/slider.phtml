@@ -1,0 +1,13 @@
+<form  method="post" enctype="multipart/form-data" class="rd-mailform">
+
+  <label for="uploaded_img">Importer une image (taille maximum : 10Mo)</label>
+  <input type="file" name="uploaded_img"  class="form-control"/>
+  <input type="hidden" name="MAX_FILE_SIZE" value="10485760" />
+
+  <label for="description">Description de l'image (facultatif)</label>
+  <input type="text" name="description" placeholder="description..." class="form-control">
+
+  <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
+  <input type="submit" value="Envoyer">
+
+</form>

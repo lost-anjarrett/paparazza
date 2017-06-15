@@ -4,9 +4,11 @@
  * @param         {string} scriptUrl
  */
 function include(scriptUrl) {
-    scriptUrl = scriptUrl.replace("js", "ressources/js");
-    document.write('<script src="' + scriptUrl + '"></script>');
+  console.log(scriptUrl);
+    // scriptUrl = scriptUrl.replace("js", "ressources/js");
+    document.write('<script src="ressources/' + scriptUrl + '"></script>');
 }
+
 
 
 /**

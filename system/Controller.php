@@ -26,7 +26,7 @@ abstract class Controller{
 
         ob_start();
 
-        include(__DIR__ . '/../ressources/views/landing.phtml');
+        include(__DIR__ . '/../ressources/views/dashboard.phtml');
 
         $view = ob_get_contents();
 

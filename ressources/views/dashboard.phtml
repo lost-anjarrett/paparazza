@@ -41,10 +41,12 @@
                 <!--END RD Navbar Toggle-->
 
                 <!--RD Navbar Brand-->
-                <div class="rd-navbar-brand"><a href="#" class="brand-name">
+                <div class="rd-navbar-brand">
+                  <a href="#" class="brand-name">
                     <img id="logo-small" src="<?= url('ressources/images/logo-small.png')?>" style="text-center" alt="">
                     <img id="logo-text" src="<?= url('ressources/images/logo-txt.png')?>" style="text-center" alt="">
-                </a></div>
+                  </a>
+                </div>
                 <!--END RD Navbar Brand-->
               </div>
               <!--END RD Navbar Panel-->
@@ -55,17 +57,17 @@
                 <!--RD Navbar Nav-->
                 <ul class="rd-navbar-nav">
                   <li><a href="<?= url('admin/dashboard') ?>">Accueil</a></li>
-                  <li><a href="<?= url() ?>">Administration</a>
+                  <li><a href="<?= url('admin/admin') ?>">Administration</a>
                       <ul class="rd-navbar-dropdown">
                           <li><a href="<?= url('admin/manage-admin') ?>">Gestion administrateurs</a></li>
                           <li><a href="<?= url('admin/infos') ?>">Infos publiques</a></li>
                       </ul>
                   </li>
-                  <li><a href="<?= url('admin/slider') ?>">Slider</a></li>
-                  <li><a href="<?= url('admin/gallery') ?>">Galerie Photo</a></li>
-                  <li><a href="<?= url('admin/products') ?>">Produits</a></li>
-                  <li><a href="<?= url('logout') ?>">Déconnexion</a></li>
-                </ul>
+                        <li><a href="<?= url('admin/slider') ?>">Slider</a></li>
+                        <li><a href="<?= url('admin/gallery') ?>">Galerie Photo</a></li>
+                        <li><a href="<?= url('admin/products') ?>">Produits</a></li>
+                        <li><a href="<?= url('logout') ?>">Déconnexion</a></li>
+                      </ul>
                 <!--END RD Navbar Nav-->
               </div>
             </div>
@@ -85,6 +87,7 @@
         <!-- Start section -->
         <section class="well well-sm page-sample">
           <div class="container container-wide">
+            <?php include('admin/' . $template . '.phtml'); ?>
           </div>
       </section>
 
@@ -97,9 +100,9 @@
       ========================================================
       -->
 
-      <footer class="page-footer footer-centered text-center bg-dark">
+      <!-- <footer class="page-footer footer-centered text-center bg-dark">
 
-      </footer>
+      </footer> -->
 
     </div>
     <!--Core Scripts-->
@@ -109,6 +112,9 @@
     <script src="<?= url('ressources/js/bootstrap.min.js')?>"></script>
     <!--Additional Functionality Scripts-->
     <script src="<?= url('ressources/js/script.js')?>"></script>
+    <script src="../ressources/js/wow.min.js"></script>
+    <script src="../ressources/js/jquery.ui.totop.min.js"></script>
+    <script src="../ressources/js/jquery.rd-navbar.min.js"></script>
     <script src="<?= url('ressources/js/overwriting.js')?>"></script>
   </body>
 </html>

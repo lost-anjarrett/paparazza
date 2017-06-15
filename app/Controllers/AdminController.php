@@ -6,11 +6,16 @@ use Projet\Models\Admin;
 class AdminController extends \System\Controller
 {
 
+    public function index()
+    {
+
+      return $this->view('accueil');
+    }
 
     public function create()
     {
         if (!isLogged()) {
-            redirect('home');
+            $this->redirect('home');
         }
 
         if (isset($_POST) && !empty($_POST)) {

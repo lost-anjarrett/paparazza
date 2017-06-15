@@ -13,6 +13,10 @@ $app->match('home', 'Projet\Controllers\PageController::index');
 $app->match('admin', 'Projet\Controllers\AuthController::login');
 $app->match('logout', 'Projet\Controllers\AuthController::logout');
 
+$app->match('admin/dashboard', 'Projet\Controllers\DashBoardController::index');
+$app->match('admin/{slug}', 'Projet\Controllers\DashBoardController::show');
+
+
 $app->match('admin/create-admin', 'Projet\Controllers\AdminController::create');
 
 $app->run();

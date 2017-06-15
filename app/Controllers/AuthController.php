@@ -21,7 +21,6 @@ class AuthController extends \System\Controller
             }
 
             if(!isset($error)) {
-                session_start();
                 $admin->logConnexion();
                 $_SESSION['admin'] = $admin;
                 $_SESSION['csrf_token'] = randString(50);
