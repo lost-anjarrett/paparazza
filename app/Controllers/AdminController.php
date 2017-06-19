@@ -128,7 +128,7 @@ class AdminController extends \System\Controller
             }
 
             if (!$admin) {
-                $errors[] = 'Désolé nous n\'avons pas pu supprimer cet utilisateur car il n\'est pas dans la base de données';
+                $errors[] = 'Désolé nous n\'avons pas trouvé cet utilisateur dans la base de données';
             }
 
             if (empty($errors)) {
