@@ -8,7 +8,6 @@ abstract class Controller{
 
     // private $user;
     //
-    //
     // public function __construct(){
     //     if(isLogged()){
     //         $this->user = (new User)->find($_SESSION['userId']);
