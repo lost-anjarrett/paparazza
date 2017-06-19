@@ -14,7 +14,7 @@ class AuthController extends \System\Controller
         if (isset($_POST) && !empty($_POST)) {
             extract($_POST);
 
-            $admin = (new Admin)->findOneBy('name', $name);
+            $admin = (new Admin)->findOneBy('UPPER(name)', strtoupper($name));
 
             if (!$admin || !password_verify($password, $admin->getPassword()) ) {
                 $error = 'Le nom d\'utilisateur n\'existe pas ou le mot de passe est incorrect';
@@ -23,6 +23,7 @@ class AuthController extends \System\Controller
             if(!isset($error)) {
                 $admin->logConnexion();
                 $_SESSION['admin'] = $admin;
+                $_SESSION['adminId'] = $admin->getId();
                 $_SESSION['csrf_token'] = randString(50);
                 $this->redirect('admin/dashboard');
             }

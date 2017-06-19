@@ -1302,36 +1302,36 @@ $('#myTabs2 a').click(function (e) {
                     validator: {
                         'constraints': {
                             '@LettersOnly': {
-                                message: 'Please use letters only!'
+                                message: 'Uniquement des lettres SVP !'
                             },
                             '@NumbersOnly': {
-                                message: 'Please use numbers only!'
+                                message: 'Uniquement des chiffres SVP !'
                             },
                             '@NotEmpty': {
-                                message: 'Field should not be empty!'
+                                message: 'Ce champs ne doit pas être vide !'
                             },
                             '@Email': {
-                                message: 'Enter valid e-mail address!'
+                                message: 'Entrez une adresse email valide !'
                             },
                             '@Phone': {
-                                message: 'Enter valid phone number!'
+                                message: 'Entrez un numéro de téléphone valide !'
                             },
                             '@Date': {
                                 message: 'Use MM/DD/YYYY format!'
                             },
                             '@SelectRequired': {
-                                message: 'Please choose an option!'
+                                message: 'Choisissez une option SVP !'
                             }
                         }
                     }
                 }, {
-                    'MF000': 'Sent',
-                    'MF001': 'Recipients are not set!',
-                    'MF002': 'Form will not work locally!',
-                    'MF003': 'Please, define email field in your form!',
-                    'MF004': 'Please, define type of your form!',
-                    'MF254': 'Something went wrong with PHPMailer!',
-                    'MF255': 'There was an error submitting the form!'
+                    'MF000': 'Envoyé',
+                    'MF001': 'Tous les champs ne sont pas remplis !',
+                    'MF002': 'Ce formulaire ne fonctionnera pas localement !',
+                    'MF003': 'Veuillez renseigner une adresse email SVP!',
+                    'MF004': 'Renseignez le type de contact SVP!',
+                    'MF254': 'Une erreur est survenue avec PHPMailer!',
+                    'MF255': 'Une erreur est survenue lors de l\'envoi du formulaire !'
                 });
             }
         });

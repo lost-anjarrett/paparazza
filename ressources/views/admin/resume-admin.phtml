@@ -1,0 +1,33 @@
+<h1 class="text-center well well-bottom bg-dark">Gestion des administateurs</h1>
+<section class="text-center well">
+    <div class="container container-wide bg-white">
+        <div class="row">
+
+
+            <div class="col-md-6 col-md-offset-3 well well-bottom">
+
+                <?php if (isset($errors)) : ?>
+                    <p class="bg-error text-center">
+                        <?php foreach ($errors as $error): ?>
+                            <p><?= $error ?></p>
+                        <?php endforeach; ?>
+                    </p>
+                <?php endif; ?>
+
+                <?php if (isset($success)) : ?>
+                    <p class="text-center">
+                        <p><?= $success ?></p>
+                    </p>
+                <?php endif; ?>
+
+            </div>
+
+
+            <div class="col-md-6 col-md-offset-3 well-bottom">
+                <h2 class="text-center well well-bottom">Que souhaitez-vous faire ?</h2>
+                <a href="<?= url('admin/manager') ?>" class="btn btn-primary btn-xl btn-bg-primary">Retour au gestionnaire d'administrateurs</a>
+                <a href="<?= url('admin/dashboard') ?>" class="btn btn-primary btn-xl btn-bg-primary">Retour au tableau de bord</a>
+            </div>
+        </div>
+    </div>
+</section>

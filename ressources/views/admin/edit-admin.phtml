@@ -3,22 +3,16 @@
     <div class="container container-wide bg-white">
         <div class="row">
             <div class="col-md-6 col-md-offset-3 well well-bottom">
-                <h3 class="well-bottom">Ajouter un nouvel administrateur</h3>
+                <h3 class="well-bottom">Modifier votre mot de passe</h3>
                 <form class="text-center" method="post">
-                    <div class="well">
-                        <input type="text" class="form-control" name="name" data-constraints="@NotEmpty" placeholder="Nom de l'administrateur"
-                        <?php if (isset($errors) && !empty($errors)): ?>
-                            value="<?= $name ?>"
-                        <?php endif; ?>>
-                        <p>Le nom doit contenir entre 4 et 20 caractères alphanumériques (pas d'espace, ni tirets, ni caractères spéciaux), insensible à la casse.</p>
-                    </div>
+
                     <div class="well">
                         <input type="password" class="form-control" data-constraints="@NotEmpty" name="password" placeholder="Mot de passe"
-                        <?php if (isset($errors) && !empty($errors)): ?>
+                        <?php if (isset($errors)): ?>
                             value="<?= $password ?>"
                         <?php endif; ?>>
                         <input type="password" class="form-control" data-constraints="@NotEmpty" name="confirmPassword" placeholder="Confirmer mot de passe"
-                        <?php if (isset($errors) && !empty($errors)): ?>
+                        <?php if (isset($errors)): ?>
                             value="<?= $password ?>"
                         <?php endif; ?>>
                         <p>Le mot de passe doit contenir 6 caractères minimum dont au moins une lettre et un chiffre.</p>

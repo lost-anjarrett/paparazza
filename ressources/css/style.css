@@ -4270,37 +4270,37 @@ fieldset[disabled] a.btn {
 .btn-primary {
   color: rgba(0, 0, 0, 0.8);
   background-color: transparent;
-  border-color: #3498db;
+  border-color: #22786f;
 }
 
 .btn-primary:focus {
   color: rgba(0, 0, 0, 0.8);
   background-color: transparent;
-  border-color: #3498db;
+  border-color:#22786f;
 }
 
 .btn-primary:hover {
   color: #fff;
-  background-color: #3498db;
-  border-color: #3498db;
+  background-color:#22786f;
+  border-color:#22786f;
 }
 
 .btn-primary.btn-bg-primary {
   color: #fff;
-  background-color: #3498db;
-  border-color: #3498db;
+  background-color: #22786f;
+  border-color: #22786f;
 }
 
 .btn-primary.btn-bg-primary:focus {
   color: #fff;
-  background-color: #3498db;
-  border-color: #3498db;
+  background-color: #22786f;
+  border-color: #22786f;
 }
 
 .btn-primary.btn-bg-primary:hover {
   color: rgba(0, 0, 0, 0.8);
   background-color: transparent;
-  border-color: #3498db;
+  border-color: #22786f;
 }
 
 .btn-success {
@@ -24854,7 +24854,7 @@ html.boxed .rd-navbar--is-clone {
   padding-bottom: 1.75rem;
 }
 
-/* 
+/*
  *  Owl Carousel - Animate Plugin
  */
 .owl-carousel .animated {
@@ -24896,7 +24896,7 @@ html.boxed .rd-navbar--is-clone {
   }
 }
 
-/* 
+/*
  * 	Owl Carousel - Auto Height Plugin
  */
 .owl-height {
@@ -24907,7 +24907,7 @@ html.boxed .rd-navbar--is-clone {
   transition: height 500ms ease-in-out;
 }
 
-/* 
+/*
  *  Core Owl Carousel CSS File
  */
 .owl-carousel {
@@ -25009,7 +25009,7 @@ html.boxed .rd-navbar--is-clone {
   display: block;
 }
 
-/* 
+/*
  * 	Owl Carousel - Lazy Load Plugin
  */
 .owl-carousel .owl-item .owl-lazy {
@@ -25021,7 +25021,7 @@ html.boxed .rd-navbar--is-clone {
   transition: opacity 400ms ease;
 }
 
-/* 
+/*
  * 	Owl Carousel - Video Plugin
  */
 .owl-carousel .owl-video-wrapper {

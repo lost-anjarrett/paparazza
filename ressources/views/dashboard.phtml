@@ -57,7 +57,7 @@
                 <!--RD Navbar Nav-->
                 <ul class="rd-navbar-nav">
                   <li><a href="<?= url('admin/dashboard') ?>">Accueil</a></li>
-                  <li>Administration
+                  <li><a href="#">Administration</a>
                       <ul class="rd-navbar-dropdown">
                           <li><a href="<?= url('admin/manager') ?>">Gestion administrateurs</a></li>
                           <li><a href="<?= url('admin/infos') ?>">Infos publiques</a></li>
@@ -81,16 +81,11 @@
                               CONTENT
       ========================================================
       -->
-      <main class="page-content undefined">
+      <main class="page-content undefined bg-dark">
 
 
         <!-- Start section -->
-        <section class="well well-sm page-sample">
-          <div class="container container-wide">
-            <?php include('admin/' . $template . '.phtml'); ?>
-          </div>
-      </section>
-
+        <?php include('admin/' . $template . '.phtml'); ?>
 
 
       </main>
@@ -112,9 +107,9 @@
     <script src="<?= url('ressources/js/bootstrap.min.js')?>"></script>
     <!--Additional Functionality Scripts-->
     <script src="<?= url('ressources/js/script.js')?>"></script>
-    <script src="../ressources/js/wow.min.js"></script>
-    <script src="../ressources/js/jquery.ui.totop.min.js"></script>
-    <script src="../ressources/js/jquery.rd-navbar.min.js"></script>
+    <script src="<?= url('ressources/js/wow.min.js') ?>"></script>
+    <script src="<?= url('ressources/js/jquery.ui.totop.min.js') ?>"></script>
+    <script src="<?= url('ressources/js/jquery.rd-navbar.min.js') ?>"></script>
     <script src="<?= url('ressources/js/overwriting.js')?>"></script>
   </body>
 </html>

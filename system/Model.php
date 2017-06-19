@@ -181,7 +181,7 @@ abstract class Model {
 
     protected function checkColumn($column)
     {
-        if(!preg_match('#^[a-zA-Z0-9_]+$#', $column)){
+        if(!preg_match('#^[a-zA-Z0-9_\(\)]+$#', $column)){
 
             die('Error: invalid column param');
 
