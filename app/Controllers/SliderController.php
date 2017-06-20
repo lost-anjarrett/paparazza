@@ -13,54 +13,70 @@ class SliderController extends \System\Controller{
         $this->image = new SliderImg;
     }
 
-    // public function show($id){
-    //
-    //     $post = $this->post->getOneFromAuthor($id);
-    //
-    //     $comments = (new Comment)->getPostCommentsWithAutor($post->getId());
-    //
-    //     $title = $post->getTitle();
-    //
-    //     $datas = compact('title', 'post', 'comments');
-    //
-    //     return $this->view('post/post', $datas);
-    // }
+    public function index()
+    {
+        if (!isLogged()) {
+            $this->redirect('home');
+        }
+
+        $slides = $this->image->findAll();
+
+        $data = compact($slides);
+
+        return $this->view('slider', $data);
+    }
 
     public function create(){
 
-        if(!isLogged()){
-            redirect('pages/home');
+      if(!isLogged()){
+          redirect('pages/home');
+      }
+
+      $title = 'Slider';
+
+      $image = $this->image;
+
+
+      if(!empty($_POST)){
+
+
+        checkCsrf();
+
+        extract($_POST);
+
+        $errors = [];
+
+        switch($_FILES['uploaded_img']['error']){
+          case 2:
+            $errors[] = 'L\'image est trop volumineuse';
+            break;
+            case 3:
+              $errors[] = 'Fichier partiellement téléchargé';
+              break;
+          case 4:
+            $errors[] = 'Merci de sélectionner une image à envoyer';
+            break;
+            case 7:
+              $errors[] = 'Erreur lors de l\'écriture sur le disque';
+              break;
         }
 
-        $title = 'Slider';
 
-        $image = $this->image;
-
-        if(!empty($_POST)){
-
-          checkCsrf();
-
-          $errors = [];
-
-          if(!isset($_FILES) OR empty($_FILES)){
-            $errors[] = 'Merci de choisir une image';
-          }
-
-          /* TODO : controles sur le fichier (extension, taille, etc) /*/
-
-         if (empty($errors)) {
-             $image->setDescription($description)
-                    ->setImgSrc(randString(20).'.png')
-                    ->saveImg($_FILES['uploaded_img']['tmp_name'])
-                    ->create();
-
-             redirect('post/slider');
-         }
+        if (!checkExtension($_FILES['uploaded_img']['name'])) {
+          $errors[] = 'type de fichier non valide (jpg, jpeg, png)';
         }
+       if (empty($errors)) {
+         $image->setDescription($description)
+                ->setImgSrc(randString(20).'.png')
+                ->saveImg($_FILES['uploaded_img']['tmp_name'])
+                ->create();
+          $success = 'L\'image a bien été ajoutée';
+        }
+      }
 
-        $datas = compact('title', 'errors');
+      $datas = compact('title', 'errors', 'success');
 
-        return $this->view('', $datas);
+      return $this->view('slider', $datas);
     }
    // post/5/delete
     public function destroy($id){
