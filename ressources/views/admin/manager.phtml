@@ -9,7 +9,7 @@
             <hr>
             <div class="col-md-6 col-md-offset-3 well well-bottom">
                 <h3>Supprimer un administrateur</h3>
-                <form action="#" method="post" id="delete-admin" data-logged-id="<?= $_SESSION['admin']->getId() ?>"  class="well">
+                <form action="#" method="post" id="delete-admin" data-logged-id="<?= $_SESSION['admin']->getId() ?>" data-confirm-suppr="true" class="well">
                     <p class="">Attention, vous ne pouvez pas supprimer votre propre compte.</p>
                     <select class="form-control" name="adminId">
                         <option value="0" selected="true">----</option>

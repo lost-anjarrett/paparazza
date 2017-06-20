@@ -13,14 +13,10 @@ $(function(){
         var $adminFormBtn = $deleteAdminForm.find('.btn');
         var $adminFormPass = $deleteAdminForm.find('[name="password"]');
         var loggedAdmin = $deleteAdminForm.data('loggedId');
-        console.log('data-id : '+ loggedAdmin);
-        console.log($deleteAdminForm.data());
-
 
         $deleteAdminForm.find('select').change(function() {
             var adminId = $(this).val();
             $deleteAdminForm.attr('action', 'manager/delete/'+adminId);
-            console.log($deleteAdminForm.attr('action'));
             if(adminId == 0 || adminId == loggedAdmin) {
                 $adminFormBtn.addClass('disabled');
                 $adminFormBtn.attr('disabled', 'disabled');
@@ -32,5 +28,21 @@ $(function(){
             }
         });
     }
+
+    $('form').submit(function() {
+        if ($(this).data('confirmSuppr')) {
+            return confirm('Attention, la suppression est définitive. Êtes vous sûr de vouloir continuer ?');
+        }
+    });
+
+    // var $infosForm = $('#infosForm');
+    //
+    // if ($infosForm.length) {
+    //
+    //     $infosForm.find('a').click(function(e) {
+    //         e.preventDefault();
+    //
+    //     });
+    // }
 
 });
