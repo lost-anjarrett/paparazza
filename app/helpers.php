@@ -7,8 +7,8 @@ function url($uri){
 	"%s://%s%s%s",
 	isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http',  // renvoi http ou https
 	$_SERVER['SERVER_NAME'],  // renvois le nom de domaine (ex localhost ou mondomaine.com)
-	$_SERVER['SERVER_NAME'] == 'localhost' ? ':8888/Paparazza/paparazza/' : '',
-	// $_SERVER['SERVER_NAME'] == 'localhost' ? '/paparazza/paparazza/' : '',
+	// $_SERVER['SERVER_NAME'] == 'localhost' ? ':8888/Paparazza/paparazza/' : '',
+	$_SERVER['SERVER_NAME'] == 'localhost' ? '/paparazza/paparazza/' : '',
 	$uri
 	);
 }

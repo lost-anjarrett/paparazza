@@ -1,9 +1,8 @@
 <?php
 namespace Projet\Controllers;
 
-use Projet\Models\Image;
+use Projet\Models\SliderImg;
 
-use Pojet\Traits\SaveDrawing;
 
 class SliderController extends \System\Controller{
 
@@ -11,7 +10,7 @@ class SliderController extends \System\Controller{
 
     public function __construct(){
         // parent::__construct();
-        $this->post = new Image;
+        $this->image = new SliderImg;
     }
 
     // public function show($id){
@@ -44,25 +43,24 @@ class SliderController extends \System\Controller{
           $errors = [];
 
           if(!isset($_FILES) OR empty($_FILES)){
-            $error = 'Merci de choisir une image';
+            $errors[] = 'Merci de choisir une image';
           }
 
-          $image->setDescription($description);
+          /* TODO : controles sur le fichier (extension, taille, etc) /*/
 
-          $img_src = randString(20).'.png'; // La fonction randString est dans le fichier app/helpers.php
+         if (empty($errors)) {
+             $image->setDescription($description)
+                    ->setImgSrc(randString(20).'.png')
+                    ->saveImg($_FILES['uploaded_img']['tmp_name'])
+                    ->create();
 
-          $image->setImgSrc($img_src);
-
-          $this->saveDrawing($_FILES['uploaded_img']['tmp_name'], $fileName, 'slider');
-
-          // $image->create();
-
-          redirect('post/slider');
+             redirect('post/slider');
+         }
         }
 
-        $datas = compact('title', 'post', 'error');
+        $datas = compact('title', 'errors');
 
-        return $this->view('post/form', $datas);
+        return $this->view('', $datas);
     }
    // post/5/delete
     public function destroy($id){

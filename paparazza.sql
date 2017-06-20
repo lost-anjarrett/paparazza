@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 15, 2017 at 11:10 AM
+-- Generation Time: Jun 20, 2017 at 11:01 AM
 -- Server version: 5.7.18-0ubuntu0.16.04.1
 -- PHP Version: 7.0.18-0ubuntu0.16.04.1
 
@@ -39,7 +39,9 @@ CREATE TABLE `ppz_admin` (
 --
 
 INSERT INTO `ppz_admin` (`id`, `name`, `password`, `doc`, `last_connexion`) VALUES
-(3, 'ppzadmin', '$2y$10$3R694GUE3BM/A6WdfSDlReIpVp13ACxx9nuWOtpPWQQgJ8bTddzT.', '2017-06-15 11:06:10', '2017-06-15 11:08:05');
+(3, 'ppzadmin', '$2y$10$3R694GUE3BM/A6WdfSDlReIpVp13ACxx9nuWOtpPWQQgJ8bTddzT.', '2017-06-15 11:06:10', '2017-06-19 14:16:35'),
+(4, 'fripouille', '$2y$10$YyhUF/d0P/M/ra.Hs4LD5eU9NDhBbjauTLU8Ksaf2nawdQV/emE4K', '2017-06-19 14:32:05', NULL),
+(5, 'testeur', '$2y$10$pDpnm.8H95T7W1W0z4aTbeRc.PUgC04Q6UCF7gdprx6oHZRPwKQ56', '2017-06-19 14:58:04', NULL);
 
 -- --------------------------------------------------------
 
@@ -119,7 +121,8 @@ CREATE TABLE `ppz_products_img` (
 CREATE TABLE `ppz_products_logos` (
   `id` int(11) NOT NULL,
   `img_src` char(24) COLLATE utf8_unicode_ci NOT NULL,
-  `product_id` int(4) NOT NULL
+  `product_id` int(4) NOT NULL,
+  `description` varchar(300) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -184,7 +187,7 @@ ALTER TABLE `ppz_products_logos`
 -- AUTO_INCREMENT for table `ppz_admin`
 --
 ALTER TABLE `ppz_admin`
-  MODIFY `id` tinyint(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` tinyint(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `ppz_gallery_img`
 --

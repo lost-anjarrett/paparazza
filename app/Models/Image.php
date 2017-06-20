@@ -32,4 +32,16 @@ class Image extends Model
         $this->description = $description;
         return $this;
     }
+
+    public function saveImg($img){
+
+        // sauvegarde dans le dossier uploads/$repo
+        move_uploaded_file($img, __DIR__.'/../../uploads/' . static::REPO . '/'.$this->img_src);
+        return $this;
+
+    }
+
+    public function deleteImg() {
+        // TODO : doit supprimer le fichier du serveur (unlink)
+    }
 }
