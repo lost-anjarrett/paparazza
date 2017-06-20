@@ -3,12 +3,12 @@
 namespace Projet\Traits;
 
 
-trait saveDrawing{
+trait SaveDrawing{
 
   public function saveDrawing($img, $fileName, $repo = ''){
 
       // sauvegarde dans le dossier uploads/$repo
-      file_put_contents(__DIR__.'/../../uploads/' . $repo . '/'.$fileName, $img);
+      move_uploaded_file($img, __DIR__.'/../../uploads/' . $repo . '/'.$fileName);
 
   }
 

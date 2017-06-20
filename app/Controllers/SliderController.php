@@ -53,7 +53,7 @@ class SliderController extends \System\Controller{
 
           $image->setImgSrc($img_src);
 
-          $this->saveDrawing($_FILES['tmp_name'], $fileName, 'slider');
+          $this->saveDrawing($_FILES['uploaded_img']['tmp_name'], $fileName, 'slider');
 
           // $image->create();
 
