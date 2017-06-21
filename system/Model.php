@@ -100,20 +100,20 @@ abstract class Model {
     {
         $datas = $this->toArray();
 
-        // unset($datas['updated_at'], $datas['created_at']);
+        // unset($datas['id']);
 
 
         $columns = array_keys($datas);  // ['id','name', 'birthday','email','password','created_at']
 
-        $sql = "UPDATE ". static::TABLE ." SET ";
+        $sql = "UPDATE ". static::TABLE ." SET";
 
         foreach($columns as $column){
 
-           $sql .= "$column = :$column, ";
+           $sql .= " $column = :$column,";
 
         }
-
-        // $sql .= "updated_at = NOW() WHERE id = :id";
+        $sql = rtrim($sql, ',');
+        $sql .= " WHERE id = :id";
 
 
         $this->db->execute($sql, $datas);
