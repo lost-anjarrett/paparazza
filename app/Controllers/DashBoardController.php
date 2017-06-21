@@ -13,7 +13,7 @@ class DashBoardController extends \System\Controller
           $this->redirect('home');
       }
 
-      return $this->view('slider');
+      return $this->view('accueil');
     }
 
     public function show($slug)

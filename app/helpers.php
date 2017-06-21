@@ -7,8 +7,8 @@ function url($uri){
 	"%s://%s%s%s",
 	isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http',  // renvoi http ou https
 	$_SERVER['SERVER_NAME'],  // renvois le nom de domaine (ex localhost ou mondomaine.com)
-	// $_SERVER['SERVER_NAME'] == 'localhost' ? ':8888/Paparazza/paparazza/' : '',
-	$_SERVER['SERVER_NAME'] == 'localhost' ? '/paparazza/paparazza/' : '',
+	$_SERVER['SERVER_NAME'] == 'localhost' ? ':8888/Paparazza/paparazza/' : '',
+	// $_SERVER['SERVER_NAME'] == 'localhost' ? '/paparazza/paparazza/' : '',
 	$uri
 	);
 }
@@ -36,4 +36,10 @@ function checkCsrf(){
 	if($_SESSION['csrf_token'] != $_POST['csrf_token']){
 		die('Espèce de vilain pirate, je t\'ai eu avec mon token !');
 	}
+}
+
+function checkExtension($file){
+	$acceptedExtensions = array('jpg', 'jpeg', 'gif', 'png');
+	$uploadExtension = strtolower(substr(strrchr($file, '.'), 1) );
+	return in_array($uploadExtension, $acceptedExtensions); 
 }

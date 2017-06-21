@@ -1,7 +1,7 @@
 <?php
 namespace Projet\Models;
 
-use Image;
+use Projet\Models\Image;
 
 class SliderImg extends Image
 {
