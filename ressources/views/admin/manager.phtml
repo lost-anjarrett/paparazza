@@ -1,15 +1,14 @@
-<h1 class="text-center well well-bottom bg-dark">Gestion des administateurs</h1>
+<h1 class="text-center well bg-dark">Gestion des administateurs</h1>
 <section class="text-center well">
     <div class="container container-wide bg-white">
         <div class="row">
-            <div class="col-md-6 col-md-offset-3 well well-bottom">
+            <div class="col-md-6 col-md-offset-3 well">
                 <h3>Ajouter un nouvel administrateur</h3>
                 <a href="<?= url('admin/manager/create') ?>" class="btn btn-primary">Ajouter</a>
             </div>
-            <hr>
-            <div class="col-md-6 col-md-offset-3 well well-bottom">
-                <h3>Supprimer un administrateur</h3>
-                <form action="#" method="post" id="delete-admin" data-logged-id="<?= $_SESSION['admin']->getId() ?>" data-confirm-suppr="true" class="well">
+            <div class="col-md-6 col-md-offset-3 well-bottom">
+                <h3 class="well-bottom">Supprimer un administrateur</h3>
+                <form action="#" method="post" id="delete-admin" data-logged-id="<?= $_SESSION['admin']->getId() ?>" data-confirm-suppr="true">
                     <p class="">Attention, vous ne pouvez pas supprimer votre propre compte.</p>
                     <select class="form-control" name="adminId">
                         <option value="0" selected="true">----</option>
@@ -22,9 +21,8 @@
                     <input type="submit" class="btn btn-primary disabled" disabled value="Supprimer">
                 </form>
             </div>
-            <hr>
 
-            <div class="col-md-6 col-md-offset-3 well well-bottom">
+            <div class="col-md-6 col-md-offset-3 well-bottom">
                 <h3>Modifier votre mot de passe</h3>
                 <form action="<?= url('admin/manager/edit') ?>" method="post">
                     <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">

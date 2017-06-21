@@ -41,5 +41,5 @@ function checkCsrf(){
 function checkExtension($file){
 	$acceptedExtensions = array('jpg', 'jpeg', 'gif', 'png');
 	$uploadExtension = strtolower(substr(strrchr($file, '.'), 1) );
-	return in_array($uploadExtension, $acceptedExtensions); 
+	return in_array($uploadExtension, $acceptedExtensions);
 }
