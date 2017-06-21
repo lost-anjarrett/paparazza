@@ -32,10 +32,11 @@
                         <input type="text" class="form-control" name="city1" data-constraints="@NotEmpty" value="<?= $infos->getCity1() ?>">
                     </div>
                     <?php if (is_null($infos->getAdress2())): ?>
-                        <p class="well"><a href="#"><i class="fa fa-plus-circle" aria-hidden="true"></i> Ajouter une deuxième adresse</a></p>
+                        <p class="well"><a href="#" data-target="adress2" data-show="true"><i class="fa fa-plus-circle" aria-hidden="true"></i> Ajouter une deuxième adresse</a></p>
                     <?php else: ?>
+                        <p class="well"><a href="#" data-target="adress2" data-show="true"><i class="fa fa-plus-circle" aria-hidden="true" style="display:none;"></i> Ajouter une deuxième adresse</a></p>
                         <div class="well" id="fieldAdress2">
-                            <h3 class="well-bottom">Adresse 2</h3>
+                            <h3 class="well-bottom">Adresse 2 (facultatif)</h3>
 
                             <label for="adress2">N° et rue</label>
                             <input type="text" class="form-control" name="adress2" data-constraints="@NotEmpty" value="<?= $infos->getAdress2() ?>">
@@ -48,9 +49,10 @@
 
                             <label for="city2">Ville</label>
                             <input type="text" class="form-control" name="city2" data-constraints="@NotEmpty" value="<?= $infos->getCity2() ?>">
+                            <p class="well"><a href="#" data-target="adress2"><i class="fa fa-times-circle" aria-hidden="true"></i> Supprimer cette adresse</a></p>
                         </div>
                     <?php endif; ?>
-                    <div class="well" id="fieldTel2">
+                    <div class="well" id="fieldTel1">
                         <h3 class="well-bottom">Téléphone 1</h3>
 
                         <label for="tel1">N°</label>
@@ -58,23 +60,25 @@
 
                     </div>
                     <?php if (is_null($infos->getTel2())): ?>
-                        <p class="well"><a href="#"><i class="fa fa-plus-circle" aria-hidden="true"></i> Ajouter un deuxième numéro de téléphone</a></p>
+                        <p class="well"><a href="#" data-target="tel2" data-show="true"><i class="fa fa-plus-circle" aria-hidden="true"></i> Ajouter un deuxième numéro de téléphone</a></p>
+
                     <?php else: ?>
+                        <p class="well"><a href="#" data-target="tel2" data-show="true"><i class="fa fa-plus-circle" aria-hidden="true" style="display:none;"></i> Ajouter un deuxième numéro de téléphone</a></p>
                         <div class="well" id="fieldTel2">
-                            <h3 class="well-bottom">Téléphone 2</h3>
+                            <h3 class="well-bottom">Téléphone 2 (facultatif)</h3>
 
                             <label for="tel2">N°</label>
                             <input type="text" class="form-control" name="tel2" data-constraints="@NotEmpty" value="<?= $infos->getTel2() ?>">
+                            <p class="well"><a href="#" data-target="tel2"><i class="fa fa-times-circle" aria-hidden="true"></i> Supprimer ce numéro de téléphone</a></p>
 
                         </div>
                     <?php endif; ?>
-                    <div class="well">
+                    <div class="well-bottom">
                         <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
                         <input type="submit" class="btn btn-primary btn-large" value="Enregistrer les modifications">
                     </div>
                 </form>
             </div>
-
 
             <div class="col-md-6 col-md-offset-3 well-bottom">
                 <a href="<?= url('admin/dashboard') ?>" class="pull-right btn btn-primary btn-sm btn-bg-primary"><i class="fa fa-long-arrow-left" aria-hidden="true"></i> Retour</a>

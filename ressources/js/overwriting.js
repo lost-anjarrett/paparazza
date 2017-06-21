@@ -1,11 +1,16 @@
 $(function(){
 
+    // AFFICHAGE DES DIFFERENTS LOGOS SELON LA NAVBAR (STICKY OU ORIGINAL)
+
     var navbar = $('nav.rd-navbar--is-clone');
     var logoSmall = navbar.find('#logo-small');
     var logoText = navbar.find('#logo-text');
 
     logoSmall.hide();
     logoText.show();
+
+
+    // SELECTION D'UN ADMIN A SUPPRIMER (ROUTE DYNAMIQUE )
 
     var $deleteAdminForm = $('#delete-admin');
 
@@ -29,20 +34,76 @@ $(function(){
         });
     }
 
+
+    // CONFIRMATION POUR LES FORMULAIRES QUI GERENT UNE SUPPRESSION EN BDD
+
     $('form').submit(function() {
         if ($(this).data('confirmSuppr')) {
             return confirm('Attention, la suppression est définitive. Êtes vous sûr de vouloir continuer ?');
         }
     });
 
-    // var $infosForm = $('#infosForm');
-    //
-    // if ($infosForm.length) {
-    //
-    //     $infosForm.find('a').click(function(e) {
-    //         e.preventDefault();
-    //
-    //     });
-    // }
+    // INFOS PUBLIQUES, FORMULAIRES D'AJOUT ADRESSE ET TEL FACULTATIFS
+
+    var $infosForm = $('#infosForm');
+
+    if ($infosForm.length) {
+        var $adress1 = $infosForm.find('#fieldAdress1');
+        var $tel1 = $infosForm.find('#fieldTel1');
+        var $moreInfosLinks = $infosForm.find('a');
+
+        var $adress2 = $('  <div class="well" id="fieldAdress2" style="display:none;">\
+                                    <h3 class="well-bottom">Adresse 2 (facultatif)</h3>\
+                                    <label for="adress2">N° et rue</label>\
+                                    <input type="text" class="form-control" name="adress2" data-constraints="@NotEmpty">\
+                                    <label for="complt_adress2">Complément d\'adresse (facultatif)</label>\
+                                    <input type="text" class="form-control" name="complt_adress2">\
+                                    <label for="cp2">Code postal</label>\
+                                    <input type="text" class="form-control" name="cp2" data-constraints="@NotEmpty">\
+                                    <label for="city2">Ville</label>\
+                                    <input type="text" class="form-control" name="city2" data-constraints="@NotEmpty">\
+                                    <p class="well"><a href="#" data-target="adress2"><i class="fa fa-times-circle" aria-hidden="true"></i> Supprimer cette adresse</a></p>\
+                                </div>');
+        var $tel2 = $('<div class="well" id="fieldTel2" style="display:none;">\
+                                <h3 class="well-bottom">Téléphone 2 (facultatif)</h3>\
+                                <label for="tel2">N°</label>\
+                                <input type="text" class="form-control" name="tel2" data-constraints="@NotEmpty">\
+                                <p class="well"><a href="#" data-target="tel2"><i class="fa fa-times-circle" aria-hidden="true"></i> Supprimer ce numéro de téléphone</a></p>\
+                            </div>');
+
+        $infosForm.on('click', 'a', function(e) {
+            e.preventDefault();
+            var target = $(this).data('target');
+            var $parent = $(this).parent();
+
+            if ($(this).data('show')) {
+
+                $parent.hide();
+
+                switch (target) {
+                    case 'adress2':
+                        $parent.after($adress2.show());
+                        break;
+                    case 'tel2':
+                        $parent.after($tel2.show());
+                        break;
+                }
+
+            }
+            else {
+                $parent.parent().remove();
+
+                switch (target) {
+                    case 'adress2':
+                        $adress1.next().show();
+                        break;
+                    case 'tel2':
+                        $tel1.next().show();
+                        break;
+                }
+            }
+
+        });
+    }
 
 });
