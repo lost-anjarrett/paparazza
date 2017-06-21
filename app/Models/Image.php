@@ -41,7 +41,8 @@ class Image extends Model
 
     }
 
-    public function deleteImg() {
-        // TODO : doit supprimer le fichier du serveur (unlink)
+    public function deleteImg($img) {
+      unlink(__DIR__.'/../../uploads/' . static::REPO . '/'.$this->img_src);
+      return $this;
     }
 }
