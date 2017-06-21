@@ -194,3 +194,16 @@ i.fa {
 .bg-white {
     color: rgb(99,107,111);
 }
+
+/*footer*/
+
+.page-footer.footer-centered .footer-content address {
+	width: 15rem;
+}
+
+.page-footer.footer-centered .footer-content address:nth-child(odd) {
+	text-align: left;
+}
+.page-footer.footer-centered .footer-content address:nth-child(even) {
+	text-align: right;
+}

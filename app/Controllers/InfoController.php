@@ -77,12 +77,12 @@ class InfoController extends \System\Controller
                     ->setAdress1($adress1)
                     ->setCompltAdress1($complt_adress1)
                     ->setCp1($cp1)
-                    ->setCity1(strtolower(ucfirst($city1)))
+                    ->setCity1(ucfirst(strtolower($city1)))
                     ->setTel1($tel1)
                     ->setAdress2($adress2)
                     ->setCompltAdress2($complt_adress2)
                     ->setCp2($cp2)
-                    ->setCity2(strtolower(ucfirst($city2)))
+                    ->setCity2(ucfirst(strtolower($city2)))
                     ->setTel2($tel2)
                     ->update();
                 $this->redirect('admin/infos');

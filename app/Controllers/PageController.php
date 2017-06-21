@@ -2,6 +2,8 @@
 
 namespace Projet\Controllers;
 
+use Projet\Models\Info;
+
 class PageController extends \System\Controller
 {
 
@@ -9,16 +11,17 @@ class PageController extends \System\Controller
 
     public function index()
     {
+        $infos = (new Info)->findOneBy('id', 1);
 
-      ob_start();
+        ob_start();
 
-      include(__DIR__ . '/../../ressources/views/landing.phtml');
+        include(__DIR__ . '/../../ressources/views/landing.phtml');
 
-      $view = ob_get_contents();
+        $view = ob_get_contents();
 
-      ob_end_clean();
+        ob_end_clean();
 
-      return $view;
+        return $view;
     }
 
 }

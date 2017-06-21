@@ -2,8 +2,17 @@
   <section class="footer-content">
     <div class="container container-wide">
       <div class="navbar-brand"><a href="index.html">PAPARAZZA</a></div>
-      <address>Pôle Pixel<br>26 rue Emile Decorps<br>Villeurbanne, 69100</address>
-      <address><a href="callto:#">06 70 53 48 90<br></a><a href="mailto:#">contact@paparazza.fr</a></address>
+      <address><?= $infos->getAdress1() ?><br>
+        <?php if (!empty($infos->getCompltAdress1())): ?>
+            <?= $infos->getCompltAdress1() ?><br>
+        <?php endif; ?><?= $infos->getCity1() ?>, <?= $infos->getCp1() ?>
+      </address><address>
+          <a href="callto:#"><?= $infos->getTel1() ?></a><br>
+          <?php if (!empty($infos->getTel2())): ?>
+              <a href="callto:#"><?= $infos->getTel2() ?></a><br>
+          <?php endif; ?>
+          <a href="mailto:#"><?= $infos->getEmail() ?></a>
+      </address>
       <ul class="list-inline">
         <li><a href="https://www.instagram.com/paparazza_lyon" class="fa-instagram"></a></li>
         <li><a href="#" class="fa-linkedin"></a></li>
