@@ -21,7 +21,7 @@ class SliderController extends \System\Controller{
 
         $slides = $this->image->findAll();
 
-        $data = compact($slides);
+        $data = compact('slides');
 
         return $this->view('slider', $data);
     }
@@ -29,7 +29,7 @@ class SliderController extends \System\Controller{
     public function create(){
 
       if(!isLogged()){
-          redirect('pages/home');
+          redirect('home');
       }
 
       $title = 'Slider';
@@ -65,60 +65,43 @@ class SliderController extends \System\Controller{
         if (!checkExtension($_FILES['uploaded_img']['name'])) {
           $errors[] = 'type de fichier non valide (jpg, jpeg, png)';
         }
-       if (empty($errors)) {
+        if (empty($errors)) {
          $image->setDescription($description)
                 ->setImgSrc(randString(20).'.png')
                 ->saveImg($_FILES['uploaded_img']['tmp_name'])
                 ->create();
-          $success = 'L\'image a bien été ajoutée';
+
         }
       }
 
-      $datas = compact('title', 'errors', 'success');
+      if(empty($errors)){
+        redirect('../../admin/slider?success=true');
+      }
+
+      $datas = compact('title', 'errors');
 
       return $this->view('slider', $datas);
     }
-   // post/5/delete
-    public function destroy($id){
-
-        $post = $this->post->find($id);
-
-        if ($post->isAuthor()) {
-            $post->delete();
-            $fileName = $post->getDrawing_src(true);
-            unlink(__DIR__.'/../../uploads/drawings/'.$fileName);
-            redirect('pages/home');
-        }
-    }
-
-    public function update($id){
-
-        $title = 'Modifier le dessin';
-
-        $post = $this->post->find($id);
-
-        $datas = compact('title', 'post');
-
-        if(!empty($_POST)){
-
-            checkCsrf();
-
-            unset($_POST['drawing_src']);
 
 
+    public function destroy(){
 
-            $fileName = $post->getDrawing_src(true); // La fonction randString est dans le fichier app/helpers.php
+        if (!empty($_POST['slidesToDelete'])) {
 
-            $this->saveDrawing($_POST['drawing'], $fileName);
 
-            $post->setDrawing_src($fileName);
+          foreach ($_POST['slidesToDelete'] as $slide) {
+            $image = $this->image->find($slide);
 
-            $post->update();
+            $image->deleteImg($image)
+                  ->delete();
+          }
 
-            redirect('pages/home');
+          redirect('../../admin/slider?success=true');
+        }else{
+          redirect('../../admin/slider');
         }
 
-        return $this->view('admin/slider', $datas);
+
     }
 
 }
