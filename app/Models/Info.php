@@ -285,4 +285,19 @@ class Info extends Model
         return $this;
     }
 
+    /**
+     * Get all object properties 
+     *
+     * @return mixed Array
+     */
+    public function toArray()
+    {
+
+        $attributes = get_object_vars($this);
+
+        unset($attributes['db']);  // On supprime l'index db qui ne fait pas référence à une colonne de table
+
+        return $attributes;
+
+    }
 }

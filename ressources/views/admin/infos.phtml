@@ -5,10 +5,13 @@
             <div class="col-md-6 col-md-offset-3">
 
                 <p class="well">Ces informations sont celles qui apparaîssent sur votre site au niveau du formulaire de contact ainsi que dans le pied de page.</p>
-                <form id="infosForm" class="text-center" method="post">
+                <?php if (isset($errors)) : ?>
+                    <p class="bg-danger text-white text-center">Les modifications n'ont pas pu être enregistrées car un ou plusieurs champs sont incomplets ou manquants.</p>
+                <?php endif; ?>
+                <form id="infosForm" class="text-center" action="<?= url('admin/infos/edit') ?>" method="post">
                     <div class="well">
                         <h3 class="well-bottom">Email</h3>
-                        <input type="email" class="form-control" name="name" data-constraints="@NotEmpty @Email" value="<?= $infos->getEmail() ?>">
+                        <input type="email" class="form-control" name="email" data-constraints="@NotEmpty @Email" value="<?= $infos->getEmail() ?>">
                         <p>Attention, modifier cette adresse change aussi la destination des mails envoyés via le formulaire de contact. </p>
                     </div>
                     <div class="well" id="fieldAdress1">
@@ -34,7 +37,7 @@
                     <?php if (is_null($infos->getAdress2())): ?>
                         <p class="well"><a href="#" data-target="adress2" data-show="true"><i class="fa fa-plus-circle" aria-hidden="true"></i> Ajouter une deuxième adresse</a></p>
                     <?php else: ?>
-                        <p class="well"><a href="#" data-target="adress2" data-show="true"><i class="fa fa-plus-circle" aria-hidden="true" style="display:none;"></i> Ajouter une deuxième adresse</a></p>
+                        <p class="well" style="display:none;"><a href="#" data-target="adress2" data-show="true"><i class="fa fa-plus-circle" aria-hidden="true"></i> Ajouter une deuxième adresse</a></p>
                         <div class="well" id="fieldAdress2">
                             <h3 class="well-bottom">Adresse 2 (facultatif)</h3>
 
@@ -63,7 +66,7 @@
                         <p class="well"><a href="#" data-target="tel2" data-show="true"><i class="fa fa-plus-circle" aria-hidden="true"></i> Ajouter un deuxième numéro de téléphone</a></p>
 
                     <?php else: ?>
-                        <p class="well"><a href="#" data-target="tel2" data-show="true"><i class="fa fa-plus-circle" aria-hidden="true" style="display:none;"></i> Ajouter un deuxième numéro de téléphone</a></p>
+                        <p class="well" style="display:none;"><a href="#" data-target="tel2" data-show="true"><i class="fa fa-plus-circle" aria-hidden="true"></i> Ajouter un deuxième numéro de téléphone</a></p>
                         <div class="well" id="fieldTel2">
                             <h3 class="well-bottom">Téléphone 2 (facultatif)</h3>
 
@@ -74,6 +77,13 @@
                         </div>
                     <?php endif; ?>
                     <div class="well-bottom">
+                        <?php if (isset($errors)) : ?>
+                            <div class="bg-danger text-white text-center">
+                                <?php foreach ($errors as $error): ?>
+                                    <p><?= $error ?></p>
+                                <?php endforeach; ?>
+                            </div>
+                        <?php endif; ?>
                         <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
                         <input type="submit" class="btn btn-primary btn-large" value="Enregistrer les modifications">
                     </div>
