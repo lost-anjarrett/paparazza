@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.4.1deb2ubuntu2
--- http://www.phpmyadmin.net
+-- version 4.6.5.2
+-- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Jun 20, 2017 at 11:01 AM
--- Server version: 5.7.18-0ubuntu0.16.04.1
--- PHP Version: 7.0.18-0ubuntu0.16.04.1
+-- Client :  localhost:8889
+-- Généré le :  Mer 21 Juin 2017 à 16:46
+-- Version du serveur :  5.6.35
+-- Version de PHP :  7.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `paparazza`
+-- Base de données :  `paparazza`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ppz_admin`
+-- Structure de la table `ppz_admin`
 --
 
 CREATE TABLE `ppz_admin` (
@@ -35,18 +35,18 @@ CREATE TABLE `ppz_admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `ppz_admin`
+-- Contenu de la table `ppz_admin`
 --
 
 INSERT INTO `ppz_admin` (`id`, `name`, `password`, `doc`, `last_connexion`) VALUES
-(3, 'ppzadmin', '$2y$10$3R694GUE3BM/A6WdfSDlReIpVp13ACxx9nuWOtpPWQQgJ8bTddzT.', '2017-06-15 11:06:10', '2017-06-19 14:16:35'),
+(3, 'ppzadmin', '$2y$10$3R694GUE3BM/A6WdfSDlReIpVp13ACxx9nuWOtpPWQQgJ8bTddzT.', '2017-06-15 11:06:10', '2017-06-21 16:08:40'),
 (4, 'fripouille', '$2y$10$YyhUF/d0P/M/ra.Hs4LD5eU9NDhBbjauTLU8Ksaf2nawdQV/emE4K', '2017-06-19 14:32:05', NULL),
 (5, 'testeur', '$2y$10$pDpnm.8H95T7W1W0z4aTbeRc.PUgC04Q6UCF7gdprx6oHZRPwKQ56', '2017-06-19 14:58:04', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ppz_gallery_img`
+-- Structure de la table `ppz_gallery_img`
 --
 
 CREATE TABLE `ppz_gallery_img` (
@@ -60,7 +60,7 @@ CREATE TABLE `ppz_gallery_img` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ppz_infos`
+-- Structure de la table `ppz_infos`
 --
 
 CREATE TABLE `ppz_infos` (
@@ -79,7 +79,7 @@ CREATE TABLE `ppz_infos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `ppz_infos`
+-- Contenu de la table `ppz_infos`
 --
 
 INSERT INTO `ppz_infos` (`id`, `email`, `tel1`, `tel2`, `adress1`, `complt_adress1`, `cp1`, `city1`, `adress2`, `complt_adress2`, `cp2`, `city2`) VALUES
@@ -88,7 +88,7 @@ INSERT INTO `ppz_infos` (`id`, `email`, `tel1`, `tel2`, `adress1`, `complt_adres
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ppz_products`
+-- Structure de la table `ppz_products`
 --
 
 CREATE TABLE `ppz_products` (
@@ -101,7 +101,7 @@ CREATE TABLE `ppz_products` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ppz_products_img`
+-- Structure de la table `ppz_products_img`
 --
 
 CREATE TABLE `ppz_products_img` (
@@ -115,7 +115,7 @@ CREATE TABLE `ppz_products_img` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ppz_products_logos`
+-- Structure de la table `ppz_products_logos`
 --
 
 CREATE TABLE `ppz_products_logos` (
@@ -128,103 +128,123 @@ CREATE TABLE `ppz_products_logos` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ppz_slider_img`
+-- Structure de la table `ppz_slider_img`
 --
 
 CREATE TABLE `ppz_slider_img` (
   `id` int(11) NOT NULL,
   `img_src` char(24) COLLATE utf8_unicode_ci NOT NULL,
   `description` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 --
--- Indexes for dumped tables
+-- Contenu de la table `ppz_slider_img`
+--
+
+INSERT INTO `ppz_slider_img` (`id`, `img_src`, `description`) VALUES
+(16, 'XqTbxFyK7jpiHEFGHrva.png', 'people having fun'),
+(17, 'tXBawnunLtapYGMtFcx0.png', 'Daft Punk'),
+(18, 'lvNJpIKMIS741S0XAGy5.png', 'stormtroopers');
+
+--
+-- Index pour les tables exportées
 --
 
 --
--- Indexes for table `ppz_admin`
+-- Index pour la table `ppz_admin`
 --
 ALTER TABLE `ppz_admin`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `ppz_gallery_img`
+-- Index pour la table `ppz_gallery_img`
 --
 ALTER TABLE `ppz_gallery_img`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `ppz_infos`
+-- Index pour la table `ppz_infos`
 --
 ALTER TABLE `ppz_infos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `ppz_products`
+-- Index pour la table `ppz_products`
 --
 ALTER TABLE `ppz_products`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `ppz_products_img`
+-- Index pour la table `ppz_products_img`
 --
 ALTER TABLE `ppz_products_img`
   ADD PRIMARY KEY (`id`),
   ADD KEY `product_id` (`product_id`);
 
 --
--- Indexes for table `ppz_products_logos`
+-- Index pour la table `ppz_products_logos`
 --
 ALTER TABLE `ppz_products_logos`
   ADD PRIMARY KEY (`id`),
   ADD KEY `product_id` (`product_id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- Index pour la table `ppz_slider_img`
+--
+ALTER TABLE `ppz_slider_img`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT pour les tables exportées
 --
 
 --
--- AUTO_INCREMENT for table `ppz_admin`
+-- AUTO_INCREMENT pour la table `ppz_admin`
 --
 ALTER TABLE `ppz_admin`
   MODIFY `id` tinyint(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
--- AUTO_INCREMENT for table `ppz_gallery_img`
+-- AUTO_INCREMENT pour la table `ppz_gallery_img`
 --
 ALTER TABLE `ppz_gallery_img`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `ppz_infos`
+-- AUTO_INCREMENT pour la table `ppz_infos`
 --
 ALTER TABLE `ppz_infos`
   MODIFY `id` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT for table `ppz_products`
+-- AUTO_INCREMENT pour la table `ppz_products`
 --
 ALTER TABLE `ppz_products`
   MODIFY `id` int(4) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `ppz_products_img`
+-- AUTO_INCREMENT pour la table `ppz_products_img`
 --
 ALTER TABLE `ppz_products_img`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `ppz_products_logos`
+-- AUTO_INCREMENT pour la table `ppz_products_logos`
 --
 ALTER TABLE `ppz_products_logos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- Constraints for dumped tables
+-- AUTO_INCREMENT pour la table `ppz_slider_img`
+--
+ALTER TABLE `ppz_slider_img`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+--
+-- Contraintes pour les tables exportées
 --
 
 --
--- Constraints for table `ppz_products_img`
+-- Contraintes pour la table `ppz_products_img`
 --
 ALTER TABLE `ppz_products_img`
   ADD CONSTRAINT `ppz_products_img_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `ppz_products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `ppz_products_logos`
+-- Contraintes pour la table `ppz_products_logos`
 --
 ALTER TABLE `ppz_products_logos`
   ADD CONSTRAINT `ppz_products_logos_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `ppz_products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;

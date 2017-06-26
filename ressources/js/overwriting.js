@@ -36,7 +36,7 @@ $(function(){
 
 
     // CONFIRMATION POUR LES FORMULAIRES QUI GERENT UNE SUPPRESSION EN BDD
-
+    
     $('form').submit(function() {
         if ($(this).data('confirmSuppr')) {
             return confirm('Attention, la suppression est définitive. Êtes vous sûr de vouloir continuer ?');
