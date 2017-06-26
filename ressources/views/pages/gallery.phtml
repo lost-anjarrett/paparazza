@@ -4,16 +4,25 @@
             <h1>GALERIE PHOTO</h1>
             <hr>
             <p class="container text-center well-bottom">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <?php if(isset($slides)): ?>
-              <?php foreach ($imgs as $img):?>
+            <?php if(isset($imgs)): ?>
+              <div class="row row-no-gutter">
                 <div data-lightbox="gallery" class="flow-offset-1">
-                    <div class="col-xs-6 col-md-3">
-                        <a href="<?= url('uploads/gallery/' . $img->getImgSrc()) ?>" data-lightbox="image" title="<?php $img->getDescription() ?>">
-                            <img src="<?= url('uploads/gallery/' . $img->getImgSrc()) ?>" alt="Image 1"/>
-                        </a>
+                  <?php for ($i=0; $i < 8; $i = $i+2):?>
+                  <div class="col-xs-6 col-md-3">
+                    <div>
+                      <a href="<?= url('uploads/gallery/' . $imgs[$i]->getImgSrc()) ?>" data-lightbox="image" title="<?php $imgs[$i]->getDescription() ?>">
+                          <img src="<?= url('uploads/gallery/' . $imgs[$i]->getImgSrc()) ?>" alt="Image 1"/>
+                      </a>
                     </div>
+                    <div>
+                      <a href="<?= url('uploads/gallery/' . $imgs[$i+1]->getImgSrc()) ?>" data-lightbox="image" title="<?php $imgs[$i+1]->getDescription() ?>">
+                          <img src="<?= url('uploads/gallery/' . $imgs[$i+1]->getImgSrc()) ?>" alt="Image 1"/>
+                      </a>
+                    </div>
+                  </div>
+                  <?php endfor; ?>
                 </div>
-              <?php endforeach; ?>
+            </div>
             <?php endif; ?>
         </div>
     </div>
