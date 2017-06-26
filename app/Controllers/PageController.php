@@ -27,4 +27,17 @@ class PageController extends \System\Controller
         return $view;
     }
 
+    public function error(){
+
+      ob_start();
+
+      include(__DIR__ . '/../../ressources/views/error404.phtml');
+
+      $view = ob_get_contents();
+
+      ob_end_clean();
+
+      return $view;
+    }
+
 }
