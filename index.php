@@ -14,11 +14,17 @@ $app->match('admin', 'Projet\Controllers\AuthController::login');
 $app->match('logout', 'Projet\Controllers\AuthController::logout');
 
 $app->match('admin/dashboard', 'Projet\Controllers\DashBoardController::index');
-
+//GESTION DU SLIDER
 $app->match('admin/slider', 'Projet\Controllers\SliderController::index');
-
 $app->post('admin/slider/create', 'Projet\Controllers\SliderController::create');
 $app->post('admin/slider/destroy', 'Projet\Controllers\SliderController::destroy');
+
+//GESTION DE LA GALLERIE
+$app->match('admin/gallery', 'Projet\Controllers\GalleryController::index');
+$app->post('admin/gallery/create', 'Projet\Controllers\GalleryController::create');
+$app->post('admin/gallery/destroy', 'Projet\Controllers\GalleryController::destroy');
+
+
 $app->match('admin/infos', 'Projet\Controllers\InfosController::index');
 
 // GESTION DES ADMIN
@@ -34,6 +40,7 @@ $app->post('admin/infos/edit', '\Projet\Controllers\InfoController::edit');
 
 //ERREURS
 $app->match('{url}', '\Projet\Controllers\PageController::error');
+$app->match('admin/{url}', '\Projet\Controllers\PageController::error');
 
 
 

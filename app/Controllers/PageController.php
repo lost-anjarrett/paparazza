@@ -4,6 +4,7 @@ namespace Projet\Controllers;
 
 use Projet\Models\Info;
 use Projet\Models\SliderImg;
+use Projet\Models\GalleryImg;
 
 class PageController extends \System\Controller
 {
@@ -15,6 +16,8 @@ class PageController extends \System\Controller
         $infos = (new Info)->findOneBy('id', 1);
 
         $slides = (new SliderImg)->findAll();
+
+        $imgs = (new GalleryImg)->findAll();
 
         ob_start();
 
