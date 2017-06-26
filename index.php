@@ -32,6 +32,8 @@ $app->post('admin/manager/delete/{id}', 'Projet\Controllers\AdminController::del
 $app->match('admin/infos', '\Projet\Controllers\InfoController::index');
 $app->post('admin/infos/edit', '\Projet\Controllers\InfoController::edit');
 
+//ERREURS
+$app->match('{url}', '\Projet\Controllers\PageController::error');
 
 
 
