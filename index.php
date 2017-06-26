@@ -20,6 +20,17 @@ $app->match('admin/slider', 'Projet\Controllers\SliderController::index');
 $app->post('admin/slider/create', 'Projet\Controllers\SliderController::create');
 $app->post('admin/slider/destroy', 'Projet\Controllers\SliderController::destroy');
 
+//GESTION DU SLIDER
+$app->match('admin/slider', 'Projet\Controllers\SliderController::index');
+$app->post('admin/slider/create', 'Projet\Controllers\SliderController::create');
+$app->post('admin/slider/destroy', 'Projet\Controllers\SliderController::destroy');
+
+//GESTION DE LA GALLERIE
+$app->match('admin/gallery', 'Projet\Controllers\GalleryController::index');
+$app->post('admin/gallery/create', 'Projet\Controllers\GalleryController::create');
+$app->post('admin/gallery/destroy', 'Projet\Controllers\GalleryController::destroy');
+
+
 // GESTION DES ADMIN
 $app->match('admin/manager', 'Projet\Controllers\AdminController::index');
 $app->match('admin/manager/create', 'Projet\Controllers\AdminController::create');
@@ -33,6 +44,7 @@ $app->post('admin/infos/edit', '\Projet\Controllers\InfoController::edit');
 
 //ERREURS
 $app->match('{url}', '\Projet\Controllers\PageController::error');
+$app->match('admin/{url}', '\Projet\Controllers\PageController::error');
 
 
 
