@@ -8,6 +8,8 @@ $app['debug'] = true;
 
 // Listes des routes:
 $app->get('/', 'Projet\Controllers\PageController::index');
+$app->get('/?page={page}', 'Projet\Controllers\PageController::index')
+    ->assert('page', '\d+');
 $app->match('home', 'Projet\Controllers\PageController::index');
 
 $app->match('admin', 'Projet\Controllers\AuthController::login');

@@ -3,18 +3,12 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  localhost:8889
--- Généré le :  Mer 21 Juin 2017 à 16:46
+-- Généré le :  Lun 26 Juin 2017 à 18:46
 -- Version du serveur :  5.6.35
 -- Version de PHP :  7.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Base de données :  `paparazza`
@@ -39,7 +33,7 @@ CREATE TABLE `ppz_admin` (
 --
 
 INSERT INTO `ppz_admin` (`id`, `name`, `password`, `doc`, `last_connexion`) VALUES
-(3, 'ppzadmin', '$2y$10$3R694GUE3BM/A6WdfSDlReIpVp13ACxx9nuWOtpPWQQgJ8bTddzT.', '2017-06-15 11:06:10', '2017-06-21 16:08:40'),
+(3, 'ppzadmin', '$2y$10$3R694GUE3BM/A6WdfSDlReIpVp13ACxx9nuWOtpPWQQgJ8bTddzT.', '2017-06-15 11:06:10', '2017-06-26 15:32:46'),
 (4, 'fripouille', '$2y$10$YyhUF/d0P/M/ra.Hs4LD5eU9NDhBbjauTLU8Ksaf2nawdQV/emE4K', '2017-06-19 14:32:05', NULL),
 (5, 'testeur', '$2y$10$pDpnm.8H95T7W1W0z4aTbeRc.PUgC04Q6UCF7gdprx6oHZRPwKQ56', '2017-06-19 14:58:04', NULL);
 
@@ -56,6 +50,21 @@ CREATE TABLE `ppz_gallery_img` (
   `show` int(1) NOT NULL DEFAULT '1',
   `added_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Contenu de la table `ppz_gallery_img`
+--
+
+INSERT INTO `ppz_gallery_img` (`id`, `img_src`, `description`, `show`, `added_at`) VALUES
+(2, 'sh7M8Bj413giNfQoLkad.png', 'PEOPLE HAVING FUN', 1, '0000-00-00 00:00:00'),
+(3, 'CMPbT6vCrAc8lXA4RwPB.png', 'PEOPLE HAVING FUN', 1, '0000-00-00 00:00:00'),
+(4, 'CN6cpG5ijR2iI3ubfTAA.png', 'PEOPLE HAVING FUN', 1, '0000-00-00 00:00:00'),
+(5, 'Xuoc9jgtV0H6KSnflMQB.png', 'petit paumé', 1, '0000-00-00 00:00:00'),
+(6, 'WyEEcANdi7PJf2Vjh8Lg.png', 'PEOPLE HAVING FUN', 1, '0000-00-00 00:00:00'),
+(7, 'u6a8wtxQTzzw6e99S1po.png', 'PEOPLE HAVING FUN', 1, '0000-00-00 00:00:00'),
+(8, '54qAMtgbgsWoO3taKdPG.png', 'people having fun', 1, '0000-00-00 00:00:00'),
+(9, 'NDpMTNK0QcPcMnucetCx.png', 'PEOPLE HAVING FUN', 1, '0000-00-00 00:00:00'),
+(10, 'NvlKKIhU7seTMO4gmC8m.png', 'petit paumé', 1, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -144,7 +153,8 @@ CREATE TABLE `ppz_slider_img` (
 INSERT INTO `ppz_slider_img` (`id`, `img_src`, `description`) VALUES
 (16, 'XqTbxFyK7jpiHEFGHrva.png', 'people having fun'),
 (17, 'tXBawnunLtapYGMtFcx0.png', 'Daft Punk'),
-(18, 'lvNJpIKMIS741S0XAGy5.png', 'stormtroopers');
+(18, 'lvNJpIKMIS741S0XAGy5.png', 'stormtroopers'),
+(19, 'Q6HHTwEp4dcFWYfqn7RQ.png', 'Daft Punk');
 
 --
 -- Index pour les tables exportées
@@ -207,7 +217,7 @@ ALTER TABLE `ppz_admin`
 -- AUTO_INCREMENT pour la table `ppz_gallery_img`
 --
 ALTER TABLE `ppz_gallery_img`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT pour la table `ppz_infos`
 --
@@ -232,7 +242,7 @@ ALTER TABLE `ppz_products_logos`
 -- AUTO_INCREMENT pour la table `ppz_slider_img`
 --
 ALTER TABLE `ppz_slider_img`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- Contraintes pour les tables exportées
 --
@@ -248,7 +258,3 @@ ALTER TABLE `ppz_products_img`
 --
 ALTER TABLE `ppz_products_logos`
   ADD CONSTRAINT `ppz_products_logos_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `ppz_products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

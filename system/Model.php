@@ -178,6 +178,20 @@ abstract class Model {
         return $this->getCollection($datas);
     }
 
+    public function getFromTo($offset, $limit)
+    {
+        $offset = (int)$offset;
+        $limit = (int)$limit;
+
+        if (!is_int($offset) || !is_int($limit)) {
+            die('Il faut entrer un nombre');
+        }
+
+        $datas = $this->db->query('SELECT * FROM ' . static::TABLE . ' LIMIT ' . $limit . ' OFFSET ' . $offset);
+
+        return $this->getCollection($datas);
+    }
+
 
     protected function checkColumn($column)
     {
