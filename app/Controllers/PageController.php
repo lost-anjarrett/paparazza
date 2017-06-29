@@ -48,6 +48,7 @@ class PageController extends \System\Controller
         if (!empty($_POST)) {
             extract($_POST);
 
+
             $body = 'Expéditeur : ' . $name . ' <'. $email .'>, Tel : ' . $tel . "\r\n\r\n";
             $body .= 'Type : ' . ucfirst($formType) . "\r\n\r\n";
             $body .= 'Corps de message : ' . "\r\n\r\n";
@@ -68,8 +69,8 @@ class PageController extends \System\Controller
             // Demande une autorisation pour accéder au service
             $mail->SMTPAuth = true;
             // identification
-            $mail->Username = "XXXXXX";
-            $mail->Password = "XXXXXX";
+            $mail->Username = "xxxxxxx";
+            $mail->Password = "xxxxxxx";
             // expéditeur et destinataire
             $mail->setFrom($email, $name);
             // addresse de réponse
@@ -92,11 +93,28 @@ class PageController extends \System\Controller
                 echo "Mailer Error: " . $mail->ErrorInfo;
             } else {
                 echo "Message sent!";
+
+                $noReply = new \PHPMailer;
+
+                $noReply->isSMTP();
+
+                $noReply->Host = "ssl0.ovh.net";
+                $noReply->Port = 587;
+
+                $noReply->SMTPAuth = true;
+                $noReply->Username = "xxxxxxx";
+                $noReply->Password = "xxxxxxx";
+
+                $noReply->setFrom('no-reply@paparazza.fr', 'Paparazza');
+                $noReply->addAddress($email);
+
+                $noReply->Subject = 'Votre demande de ' . $formType ;
+                $noReply->Body = "Nous avons bien reçu votre demande, nous vous contacterons pour y donner suite.\r\n\r\nL'équipe Paparazza";
+
+                $noReply->send();
             }
 
-            echo '<pre>';
-            var_dump($mail);
-            echo '</pre>';
+
         }
 
         ob_start();
