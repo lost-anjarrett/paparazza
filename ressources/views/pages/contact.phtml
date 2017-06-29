@@ -40,21 +40,39 @@
               <li><a href="https://fr-fr.facebook.com/bornesconnectees" class="fa-facebook"></a></li>
             </ul>
           </div>
+          <!-- FORM -->
           <div class="col-md-7">
+              <?php if (isset($errors)) : ?>
+                  <div class="bg-danger text-white text-center">
+                      <?php foreach ($errors as $error): ?>
+                          <p><?= $error ?></p>
+                      <?php endforeach; ?>
+                  </div>
+              <?php endif; ?>
             <form method="post" action="<?= url('contact') ?>" class="rd-mailform">
               <div class="form-group">
                 <label for="exampleInputText1"></label>
-                <input type="text" placeholder="Votre Nom" name="name" data-constraints="@NotEmpty @LettersOnly" id="exampleInputText1" class="form-control">
+                <input type="text" placeholder="Votre Nom" name="name" required id="exampleInputText1" class="form-control"
+                <?php if (isset($errors)): ?>
+                    value="<?= $name ?>"
+                <?php endif; ?>>
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1"></label>
-                <input placeholder="Votre email" type="text" name="email" data-constraints="@NotEmpty @Email" id="exampleInputEmail1" class="form-control">
+                <input placeholder="Votre email" type="text" name="email" required id="exampleInputEmail1" class="form-control"
+                <?php if (isset($errors)): ?>
+                    value="<?= $email ?>"
+                <?php endif; ?>>
               </div>
               <div class="form-group">
                 <label for="exampleInputText2"></label>
-                <input type="text" placeholder="Téléphone" name="tel" data-constraints="@NotEmpty " id="exampleInputText2" class="form-control">
+                <input type="text" placeholder="Téléphone" name="tel" required id="exampleInputText2" class="form-control"
+                <?php if (isset($errors)): ?>
+                    value="<?= $tel ?>"
+                <?php endif; ?>>
               </div>
               <div class="form-group">
+                  <p>Merci de préciser le type et l'objet de votre demande</p>
                 <label for="exampleSelect1"></label>
                 <select id="exampleSelect1" name="formType">
                     <option value="contact">Contact</option>
@@ -63,12 +81,16 @@
               </div>
               <div class="form-group">
                 <label for="exampleInputText3"></label>
-                <input type="text" placeholder="Date et type de l'évènement" name="subject" data-constraints="@NotEmpty " id="exampleInputText3" class="form-control">
+                <input type="text" placeholder="Objet de la demande" name="subject" required id="exampleInputText3" class="form-control"
+                <?php if (isset($errors)): ?>
+                    value="<?= $subject ?>"
+                <?php endif; ?>>
               </div>
               <div class="form-group textarea">
                 <label for="exampleTextarea"></label>
-                <textarea id="exampleTextarea" rows="3" placeholder="Votre message ici..." name="message" data-constraints="@NotEmpty" class="form-control"></textarea>
+                <textarea id="exampleTextarea" rows="3" placeholder="Votre message ici..." name="message" required class="form-control"><?php if (isset($errors)) {echo $message;} ?></textarea>
               </div>
+
               <button type="submit" class="btn btn-primary">Envoyer</button>
               <div class="mfInfo"></div>
             </form>

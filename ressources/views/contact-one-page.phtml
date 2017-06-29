@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr" class="wide wow-animation">
+  <head>
+    <!--Site Title-->
+    <title>Paparazza</title>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+    <!--Stylesheets-->
+    <link rel="icon" href="<?= url('ressources/images/client_src/logo-small.png')?>" type="image/x-icon">
+
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="<?= url('ressources/css/style.css')?>">
+    <link rel="stylesheet" href="<?= url('ressources/css/overwriting.css')?>">
+<!--[if lt IE 10]>
+    <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;"><a href="http://windows.microsoft.com/en-US/internet-explorer/.."><img src="images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
+    <script src="js/html5shiv.min.js"></script><![endif]-->
+  </head>
+
+  <body>
+    <!--The Main Wrapper-->
+    <div class="page">
+      <!--
+      ========================================================
+                              HEADER
+      ========================================================
+      -->
+      <header class="page-header">
+
+        <!--RD Navbar-->
+
+        <!--END RD Navbar-->
+
+
+
+      </header>
+      <!--
+      ========================================================
+                              CONTENT
+      ========================================================
+      -->
+      <main class="page-content undefined">
+
+
+
+        <!-- Contact -->
+        <?php include('pages/contact.phtml');  ?>
+
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 well-bottom">
+                <a href="<?= url('home') ?>" class="pull-right btn btn-primary btn-sm btn-bg-primary"><i class="fa fa-long-arrow-left" aria-hidden="true"></i> Retour au site</a>
+            </div>
+        </div>
+      </main>
+      <!--
+      ========================================================
+                              FOOTER
+      ========================================================
+      -->
+
+      <?php include('pages/footer.phtml'); ?>
+
+    </div>
+    <!--Core Scripts-->
+    <script src="<?= url('ressources/js/core.min.js')?>"></script>
+    <!--jQuery (necessary for Bootstrap's JavaScript plugins)-->
+    <!--Include all compiled plugins (below), or include individual files as needed-->
+    <script src="<?= url('ressources/js/bootstrap.min.js')?>"></script>
+    <!--Additional Functionality Scripts-->
+    <script src="<?= url('ressources/js/script.js')?>"></script>
+    <script src="<?= url('ressources/js/overwriting.js')?>"></script>
+  </body>
+</html>

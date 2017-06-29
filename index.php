@@ -44,7 +44,7 @@ $app->match('admin/infos', '\Projet\Controllers\InfoController::index');
 $app->post('admin/infos/edit', '\Projet\Controllers\InfoController::edit');
 
 // CONTACT
-$app->post('contact', '\Projet\Controllers\PageController::contact');
+$app->match('contact', '\Projet\Controllers\MailController::contact');
 
 //ERREURS
 $app->match('{url}', '\Projet\Controllers\PageController::error');
