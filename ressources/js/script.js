@@ -1292,8 +1292,8 @@ $('#myTabs2 a').click(function (e) {
     var o = $('.rd-mailform');
     if (o.length > 0) {
         include('js/mailform/jquery.form.min.js');
-        include('js/mailform/jquery.rd-mailform.min.js');
-
+        // include('js/mailform/jquery.rd-mailform.min.js');
+/*
         $(document).ready(function () {
             var o = $('.rd-mailform');
 
@@ -1335,6 +1335,7 @@ $('#myTabs2 a').click(function (e) {
                 });
             }
         });
+*/
     }
 })(jQuery);
 

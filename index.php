@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__.'/vendor/autoload.php';
+require_once __DIR__.'/vendor/phpmailer/phpmailer/PHPMailerAutoload.php';
 session_start();
 
 
@@ -42,9 +43,13 @@ $app->post('admin/manager/delete/{id}', 'Projet\Controllers\AdminController::del
 $app->match('admin/infos', '\Projet\Controllers\InfoController::index');
 $app->post('admin/infos/edit', '\Projet\Controllers\InfoController::edit');
 
+// CONTACT
+$app->post('contact', '\Projet\Controllers\PageController::contact');
+
 //ERREURS
 $app->match('{url}', '\Projet\Controllers\PageController::error');
 $app->match('admin/{url}', '\Projet\Controllers\PageController::error');
+
 
 
 

@@ -27,12 +27,12 @@
                   </address>
               <?php endif; ?>
               <h4>Téléphone</h4>
-              <address class="small text-darker"><a href="callto:#"><?= $infos->getTel1() ?></a></address>
+              <address class="small text-darker"><a href="callto:<?= $infos->getTel1() ?>"><?= $infos->getTel1() ?></a></address>
               <?php if (!empty($infos->getTel2())): ?>
-                  <address class="small text-darker"><a href="callto:#"><?= $infos->getTel2() ?></a></address>
+                  <address class="small text-darker"><a href="callto:<?= $infos->getTel2() ?>"><?= $infos->getTel2() ?></a></address>
               <?php endif; ?>
               <h4>Email</h4>
-              <address class="small text-darker"><a href="mailto:#"><?= $infos->getEmail() ?></a></address>
+              <address class="small text-darker"><a href="mailto:<?= $infos->getEmail() ?>"><?= $infos->getEmail() ?></a></address>
             </div>
             <ul class="list-inline big text-dark">
               <li><a href="https://www.instagram.com/paparazza_lyon" class="fa-instagram"></a></li>
@@ -41,10 +41,7 @@
             </ul>
           </div>
           <div class="col-md-7">
-            <form method="post" action="bat/rd-mailform.php" class="rd-mailform">
-              <!--RD Mailform Type-->
-              <input type="hidden" name="form-type" value="contact">
-              <!--END RD Mailform Type-->
+            <form method="post" action="<?= url('contact') ?>" class="rd-mailform">
               <div class="form-group">
                 <label for="exampleInputText1"></label>
                 <input type="text" placeholder="Votre Nom" name="name" data-constraints="@NotEmpty @LettersOnly" id="exampleInputText1" class="form-control">
@@ -58,8 +55,15 @@
                 <input type="text" placeholder="Téléphone" name="tel" data-constraints="@NotEmpty " id="exampleInputText2" class="form-control">
               </div>
               <div class="form-group">
+                <label for="exampleSelect1"></label>
+                <select id="exampleSelect1" name="formType">
+                    <option value="contact">Contact</option>
+                    <option value="devis">Devis</option>
+                </select>
+              </div>
+              <div class="form-group">
                 <label for="exampleInputText3"></label>
-                <input type="text" placeholder="Date et type de l'évènement" name="date_type" data-constraints="@NotEmpty " id="exampleInputText3" class="form-control">
+                <input type="text" placeholder="Date et type de l'évènement" name="subject" data-constraints="@NotEmpty " id="exampleInputText3" class="form-control">
               </div>
               <div class="form-group textarea">
                 <label for="exampleTextarea"></label>
