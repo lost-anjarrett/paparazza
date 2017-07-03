@@ -119,4 +119,23 @@ $(function(){
         });
     }
 
+    //GESTION DE LA PAGINATION DE LA GALLERIE PHOTO EN AJAX
+    function getResult(url){
+      $.ajax({
+        url: url,
+        type: "GET",
+        data: {page: $("#gallery a.btn").attr('id')},
+        success: function(data){
+          $("#gallery").html(data);
+        }
+      });
+    }
+
+    $("#gallery a.btn").click(function(e){
+      e.preventDefault()
+      console.log($(this).attr('id'));
+    });
+
+
+
 });

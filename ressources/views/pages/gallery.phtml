@@ -5,6 +5,7 @@
             <hr>
             <p class="container text-center well-bottom">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             <?php if(isset($imgs)): ?>
+              <div class="row" id="gallery">
                 <div data-lightbox="gallery" class="flow-offset-1">
                     <?php foreach ($imgs as $img):?>
                         <div class="col-xs-6 col-md-3">
@@ -14,8 +15,11 @@
                         </div>
                     <?php endforeach; ?>
                 </div>
+                <?php for($i = 1; $i <= $numberOfPages; $i++): ?>
+                  <a href="?page=<?= $i ?>"class="btn btn-default" id="<?= $i ?>"><?= $i ?></a>
+                <?php endfor; ?>
+              </div>
             <?php endif; ?>
-
         </div>
     </div>
 </section>

@@ -178,6 +178,28 @@ abstract class Model {
         return $this->getCollection($datas);
     }
 
+    public function getFromTo($page, $limit)
+    {
+        $limit = (int)$limit;
+        $offset = (int)(($page - 1) * $limit);
+
+        if (!is_int($offset) || !is_int($limit)) {
+            die('Il faut entrer un nombre');
+        }
+
+        $datas = $this->db->query('SELECT SQL_CALC_FOUND_ROWS * FROM ' . static::TABLE . ' LIMIT ' . $limit . ' OFFSET ' . $offset);
+
+        $objects = $this->getCollection($datas);
+
+        $rowNumber = $this->db->query('SELECT found_rows()');
+
+        $rowNumber  = $rowNumber[0]['found_rows()'];
+
+        $datasCounted = compact('objects', 'rowNumber');
+
+        return $datasCounted;
+    }
+
 
     protected function checkColumn($column)
     {
