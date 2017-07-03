@@ -7,8 +7,8 @@ class DB
 {
     const DB_HOST = 'mysql:host=localhost;';
     const DB_DATABASE = 'dbname=paparazza;charset=utf8';
-    const DB_USERNAME = '';
-    const DB_PASSWORD = '';
+    const DB_USERNAME = 'paparazza';
+    const DB_PASSWORD = 'yg1234';
 
     protected static $pdo = null;
 
