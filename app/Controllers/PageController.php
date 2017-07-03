@@ -16,16 +16,19 @@ class PageController extends \System\Controller
         $infos = (new Info)->findOneBy('id', 1);
 
         $slides = (new SliderImg)->findAll();
-
+        //Getting images for the Gallery
+        //Number of pictures
         $limit = 4;
+        //if there's a page param...
+        $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 
-        $offset = isset($_GET['page']) ? ((int)$_GET['page']-1) * $limit : 0;
+        $imgsCounted = (new GalleryImg)->getFromTo($page, $limit);
 
-        $imgs = (new GalleryImg)->getFromTo($offset, $limit);
-
-        var_dump($offset);
-
-        var_dump($imgs);
+        $imgs = $imgsCounted['objects'];
+        //the total of imgs registered
+        $rowNumber = $imgsCounted['rowNumber'];
+        //total of pages needed
+        $numberOfPages = ceil($rowNumber / $limit);
 
         ob_start();
 
