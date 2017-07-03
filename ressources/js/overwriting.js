@@ -36,7 +36,7 @@ $(function(){
 
 
     // CONFIRMATION POUR LES FORMULAIRES QUI GERENT UNE SUPPRESSION EN BDD
-    
+
     $('form').submit(function() {
         if ($(this).data('confirmSuppr')) {
             return confirm('Attention, la suppression est définitive. Êtes vous sûr de vouloir continuer ?');
@@ -103,6 +103,19 @@ $(function(){
                 }
             }
 
+        });
+    }
+
+    var $contactForm = $('.rd-mailform');
+    if ($contactForm.length) {
+        var $select = $contactForm.find('select');
+        var $subject = $contactForm.find('input[name=subject]');
+        $select.change(function(){
+            if ( $(this).val() == 'contact' ) {
+                $subject.attr('placeholder', 'Objet de la demande');
+            } else {
+                $subject.attr('placeholder', 'Date et type de l\'évènement');
+            }
         });
     }
 

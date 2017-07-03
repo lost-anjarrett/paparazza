@@ -8,8 +8,11 @@ $app = new Silex\Application();
 $app['debug'] = true;
 
 // Listes des routes:
-$app->get('/', 'Projet\Controllers\PageController::index');
+// $app->get('/', 'Projet\Controllers\PageController::index');
 $app->match('home', 'Projet\Controllers\PageController::index');
+
+// INDEX DEV
+$app->get('/', 'Projet\Controllers\PageController::dev');
 
 $app->match('admin', 'Projet\Controllers\AuthController::login');
 $app->match('logout', 'Projet\Controllers\AuthController::logout');

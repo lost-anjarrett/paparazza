@@ -30,6 +30,19 @@ class PageController extends \System\Controller
         return $view;
     }
 
+    public function dev()
+    {
+        ob_start();
+
+        include(__DIR__ . '/../../ressources/views/pages/work-in-progress.phtml');
+
+        $view = ob_get_contents();
+
+        ob_end_clean();
+
+        return $view;
+    }
+
     public function error(){
 
       ob_start();
@@ -43,6 +56,6 @@ class PageController extends \System\Controller
       return $view;
     }
 
-    
+
 
 }

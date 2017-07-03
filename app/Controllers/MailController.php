@@ -8,8 +8,8 @@ class MailController extends \System\Controller
 {
     const HOST_NAME = "ssl0.ovh.net";
     const TCP_PORT = 587;
-    const USERNAME = 'xxxxxxx';
-    const PASSWORD = 'xxxxxxx';
+    const USERNAME = 'contact@paparazza.fr';
+    const PASSWORD = 'iris2007%';
 
 
     public function contact()
