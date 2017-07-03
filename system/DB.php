@@ -5,8 +5,8 @@ use PDO;
 
 class DB
 {
-    const DB_HOST = 'mysql:host=;';
-    const DB_DATABASE = 'dbname=;charset=utf8';
+    const DB_HOST = 'mysql:host=localhost;';
+    const DB_DATABASE = 'dbname=paparazza;charset=utf8';
     const DB_USERNAME = '';
     const DB_PASSWORD = '';
 
