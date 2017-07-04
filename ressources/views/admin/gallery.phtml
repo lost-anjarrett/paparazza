@@ -1,31 +1,6 @@
 <h1 class="text-center well bg-dark">Gestion de la Galerie</h1>
 <section class="text-center">
     <div class="container container-wide bg-white">
-        <?php if(isset($imgs)): ?>
-          <div class="row">
-              <div class="col-md-6 col-md-offset-3 well well-bottom">
-                  <h3>Supprimer une/des image(s)</h3>
-                  <hr>
-                    <form action="<?= url('admin/gallery/destroy') ?>" method="post">
-                      <?php foreach ($imgs as $img):?>
-                        <label for="<?= $img->getImgSrc() ?>">
-                          <div data-lightbox="gallery" class="flow-offset-1">
-                              <div class="col-xs-6 col-md-3">
-                                <img src="<?= url('uploads/gallery/' . $img->getImgSrc()) ?>" alt="Image 1"/>
-                                <input type="checkbox" id="<?= $img->getImgSrc() ?>" name="galleryImg[]" value="<?= $img->getId(); ?>">
-                              </div>
-                          </div>
-                        </label>
-                      <?php endforeach; ?>
-                      <div class="row">
-                        <div class="col-md-12 inset-2">
-                          <button type="submit" class="btn btn-primary">Supprimer</button>
-                        </div>
-                      </div>
-                  </form>
-              </div>
-          </div>
-        <?php endif; ?>
         <div class="row">
           <div class="col-md-6 col-md-offset-3 well-bottom">
             <?php if (isset($errors) && !empty($errors)) : ?>
@@ -47,7 +22,7 @@
             <div class="col-md-6 col-md-offset-3 well well-bottom">
                 <h3>Ajouter une nouvelle image</h3>
                 <hr>
-                <form  method="post" enctype="multipart/form-data" action="<?= url('admin/gallery/create') ?>">
+                <form  method="post" enctype="multipart/form-data" action="<?= url('admin/gallery/create') ?>" data-confirm-suppr="true">
 
                   <div class="row">
                     <div class="col-md-12">
@@ -70,6 +45,31 @@
                 </form>
             </div>
           </div>
+          <?php if(isset($imgs)): ?>
+              <div class="row">
+                  <div class="col-md-6 col-md-offset-3 well well-bottom">
+                      <h3>Supprimer une/des image(s)</h3>
+                      <hr>
+                      <form action="<?= url('admin/gallery/destroy') ?>" method="post">
+                          <?php foreach ($imgs as $img):?>
+                              <label for="<?= $img->getImgSrc() ?>">
+                                  <div data-lightbox="gallery" class="flow-offset-1">
+                                      <div class="col-xs-6 col-md-3">
+                                          <img src="<?= url('uploads/gallery/' . $img->getImgSrc()) ?>" alt="Image 1"/>
+                                          <input type="checkbox" id="<?= $img->getImgSrc() ?>" name="galleryImg[]" value="<?= $img->getId(); ?>">
+                                      </div>
+                                  </div>
+                              </label>
+                          <?php endforeach; ?>
+                          <div class="row">
+                              <div class="col-md-12 inset-2">
+                                  <button type="submit" class="btn btn-primary">Supprimer</button>
+                              </div>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          <?php endif; ?>
 
 
             <div class="col-md-6 col-md-offset-3 well-bottom">
