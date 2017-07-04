@@ -22,7 +22,9 @@ class PageController extends \System\Controller
         //if there's a page param...
         $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 
-        $imgsCounted = (new GalleryImg)->getFromTo($page, $limit);
+        $galleryImg = new GalleryImg;
+
+        $imgsCounted = $galleryImg->getFromTo($page, $limit);
 
         $imgs = $imgsCounted['objects'];
         //the total of imgs registered

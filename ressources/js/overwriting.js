@@ -106,6 +106,7 @@ $(function(){
         });
     }
 
+
     var $contactForm = $('.rd-mailform');
     if ($contactForm.length) {
         var $select = $contactForm.find('select');
@@ -127,6 +128,7 @@ $(function(){
         data: {page: $("#gallery a.btn").attr('id')},
         success: function(data){
           $("#gallery").html(data);
+          console.log('success');
         }
       });
     }
@@ -134,6 +136,7 @@ $(function(){
     $("#gallery a.btn").click(function(e){
       e.preventDefault()
       console.log($(this).attr('id'));
+      getResult('ressources/views/getResult.php');
     });
 
 

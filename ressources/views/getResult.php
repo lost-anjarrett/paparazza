@@ -1,3 +1,13 @@
+<?php
+
+$imgsCounted = $galleryImg->getFromTo($_GET['page'], $limit);
+
+$imgs = $imgsCounted['objects'];
+//the total of imgs registered
+$rowNumber = $imgsCounted['rowNumber'];
+//total of pages needed
+$numberOfPages = ceil($rowNumber / $limit); ?>
+
 <?php if(isset($imgs)): ?>
   <div class="row" id="gallery">
     <div data-lightbox="gallery" class="flow-offset-1">
