@@ -49,6 +49,9 @@ $app->post('admin/infos/edit', '\Projet\Controllers\InfoController::edit');
 // CONTACT
 $app->match('contact', '\Projet\Controllers\MailController::contact');
 
+// MENTIONS LEGALES
+$app->match('mentions-legales', '\Projet\Controllers\PageController::mentions');
+
 //ERREURS
 $app->match('{url}', '\Projet\Controllers\PageController::error');
 $app->match('admin/{url}', '\Projet\Controllers\PageController::error');

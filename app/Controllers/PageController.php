@@ -56,6 +56,17 @@ class PageController extends \System\Controller
       return $view;
     }
 
+    public function mentions()
+    {
+        $infos = (new Info)->findOneBy('id', 1);
+        
+        ob_start();
+        include(__DIR__ . '/../../ressources/views/mentions-legales.phtml');
+        $view = ob_get_contents();
+        ob_end_clean();
+        return $view;
+    }
+
 
 
 }
