@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr" class="wide wow-animation">
+  <head>
+    <!--Site Title-->
+    <title>Mentions légales | Paparazza</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Location / Vente de bornes connectées, boostez vos évènements avec nos bornes photos, bornes hashtag, jukebox, digisport 2.0, livre d'or numérique">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+    <!--Stylesheets-->
+    <link rel="icon" href="<?= url('ressources/images/logo-small.png')?>" type="image/x-icon">
+
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="<?= url('ressources/css/style.css')?>">
+    <link rel="stylesheet" href="<?= url('ressources/css/overwriting.css')?>">
+<!--[if lt IE 10]>
+    <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;"><a href="http://windows.microsoft.com/en-US/internet-explorer/.."><img src="images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
+    <script src="js/html5shiv.min.js"></script><![endif]-->
+  </head>
+
+  <body>
+    <!--The Main Wrapper-->
+    <div class="page">
+      <!--
+      ========================================================
+                              HEADER
+      ========================================================
+      -->
+      <header class="page-header">
+
+        <!--RD Navbar-->
+        <div class="rd-navbar-wrap">
+          <nav class="rd-navbar bg-white top-panel-none-items" data-lg-device-layout="rd-navbar-static" data-layout="rd-navbar-fixed" data-hover-on="false" data-stick-up="false" data-sm-layout="rd-navbar-fullwidth">
+            <div class="rd-navbar-inner">
+
+              <!--RD Navbar Panel-->
+              <div class="rd-navbar-panel">
+
+                <!--RD Navbar Toggle-->
+                <button data-rd-navbar-toggle=".rd-navbar" class="rd-navbar-toggle"><span></span></button>
+                <!--END RD Navbar Toggle-->
+
+                <!--RD Navbar Brand-->
+                <div class="rd-navbar-brand"><a href="#" class="brand-name">
+                    <img id="logo-small" src="<?= url('ressources/images/logo-small.png')?>" style="text-center" alt="">
+                    <img id="logo-text" src="<?= url('ressources/images/logo-txt.png')?>" style="text-center" alt="">
+                </a></div>
+                <!--END RD Navbar Brand-->
+              </div>
+              <!--END RD Navbar Panel-->
+
+              <div class="rd-navbar-nav-wrap">
+
+
+                <!--RD Navbar Nav-->
+                <ul class="rd-navbar-nav">
+                  <li><a href="<?= url('home') ?>">Retour au site</a></li>
+                  <?php if (isLogged()): ?>
+                      <li><a href="#"><i class="fa fa-caret-square-o-down" aria-hidden="true"></i></a>
+                          <ul class="rd-navbar-dropdown">
+                              <li><a href="<?= url('admin/dashboard') ?>">Tableau de bord</a></li>
+                              <li><a href="<?= url('logout') ?>">Déconnexion</a></li>
+                          </ul>
+                      </li>
+                  <?php endif; ?>
+                </ul>
+                <!--END RD Navbar Nav-->
+              </div>
+            </div>
+          </nav>
+        </div>
+        <!--END RD Navbar-->
+
+
+
+      </header>
+      <!--
+      ========================================================
+                              CONTENT
+      ========================================================
+      -->
+      <main class="page-content undefined">
+        <section class="text-left well">
+          <div class="container container-wide">
+            <div class="row">
+              <div class="col-xs-12 well border-bottom">
+                <p class="text-darker">Fusce condimentum eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat.</p>
+                <ol class="ordered-list offset-1 inset-left-1">
+                  <li>Ut adipiscing elit magna sed et quam lacus. Fusce condimentum eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat. Lorem ipsum dolor sit amet. Et harum quidem rerum facilis fusce condimentum eleifend enim a feugiat.</li>
+                  <li>Lusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati.</li>
+                  <li>Praesentium voluptatum deleniti atque corrupti quos</li>
+                  <li>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi.</li>
+                  <li>Mentum eleifend enim a feugiat distinctio lor</li>
+                </ol>
+              </div>
+              <div class="col-xs-12 well border-bottom">
+                <h2 class="ls-100">Lorem ipsum dolor integer sed arcu</h2>
+                <p class="text-darker inset-left-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat. Integer sed arcu. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero consectetur adipiscing elit magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat.</p>
+                <p class="text-darker text-uppercase small font-secondary inset-left-1 offset-3">
+                  Iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non sit amet, consectetur adipiscing elit. Ut adipiscing elit magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat. Pellentesque lorem ipsum dolor sit amet. Ut non libero magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat consectetur adipiscing elit.
+
+                </p>
+              </div>
+              <div class="col-xs-12 well">
+                <h2 class="ls-100">Molestias excepturi sint</h2>
+                <p class="text-darker inset-left-1">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat. Pellentesque viverra lacus. Fusce condimentum eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat.
+
+                </p>
+                <ul class="marked-list marked-list-3 offset-3">
+                  <li>Ut adipiscing elit magna sed et quam lacus. Fusce condimentum eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat. Lorem ipsum dolor sit amet. Et harum quidem rerum facilis fusce condimentum eleifend enim a feugiat.</li>
+                  <li>Lusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati.</li>
+                  <li>Praesentium voluptatum deleniti atque corrupti quos</li>
+                  <li>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi.</li>
+                  <li>Mentum eleifend enim a feugiat distinctio lor</li>
+                  <li>Ut adipiscing elit magna sed et quam lacus. Fusce condimentum eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat. Lorem ipsum dolor sit amet. Et harum quidem rerum facilis fusce condimentum eleifend enim a feugiat.</li>
+                  <li>Lusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati.</li>
+                  <li>Praesentium voluptatum deleniti atque corrupti quos</li>
+                  <li>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi.</li>
+                  <li>Mentum eleifend enim a feugiat distinctio lor</li>
+                </ul>
+                <p class="inset-left-1 offset-3">Praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non ipsum dolor sit amet. Ut non libero magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non ipsum dolor sit amet. Ut non libero magna. Sed et quam lacus usce condimentum eleifend enim a feugiat <a href="#" class="text-bold text-underline">consectetur adipiscing elit.</a>
+
+
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <!--
+      ========================================================
+                              FOOTER
+      ========================================================
+      -->
+
+      <?php include('pages/footer.phtml'); ?>
+
+    </div>
+    <!--Core Scripts-->
+    <script src="<?= url('ressources/js/core.min.js')?>"></script>
+    <!--jQuery (necessary for Bootstrap's JavaScript plugins)-->
+    <!--Include all compiled plugins (below), or include individual files as needed-->
+    <script src="<?= url('ressources/js/bootstrap.min.js')?>"></script>
+    <!--Additional Functionality Scripts-->
+    <script src="<?= url('ressources/js/script.js')?>"></script>
+    <script src="<?= url('ressources/js/overwriting.js')?>"></script>
+  </body>
+</html>

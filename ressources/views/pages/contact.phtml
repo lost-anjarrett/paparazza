@@ -11,28 +11,28 @@
           <div class="col-md-3 col-md-offset-1 text-center text-md-left">
             <div class="contact-info-2">
               <h4>Adresse</h4>
-              <address class="small text-darker"><?= $infos->getAdress1() ?><br>
+              <address class="small text-darker"><?= esc($infos->getAdress1()) ?><br>
                   <?php if (!empty($infos->getCompltAdress1())): ?>
-                      <?= $infos->getCompltAdress1() ?><br>
+                      <?= esc($infos->getCompltAdress1()) ?><br>
                   <?php endif; ?>
-                  <?= $infos->getCity1() ?>, <?= $infos->getCp1() ?>
+                  <?= esc($infos->getCity1()) ?>, <?= esc($infos->getCp1()) ?>
               </address>
               <?php if (!empty($infos->getAdress2())): ?>
                   <h4>Adresse 2</h4>
-                  <address class="small text-darker"><?= $infos->getAdress2() ?><br>
+                  <address class="small text-darker"><?= esc($infos->getAdress2()) ?><br>
                       <?php if (!empty($infos->getCompltAdress2())): ?>
-                          <?= $infos->getCompltAdress2() ?><br>
+                          <?= esc($infos->getCompltAdress2()) ?><br>
                       <?php endif; ?>
-                      <?= $infos->getCity2() ?>, <?= $infos->getCp2() ?>
+                      <?= esc($infos->getCity2()) ?>, <?= esc($infos->getCp2()) ?>
                   </address>
               <?php endif; ?>
               <h4>Téléphone</h4>
-              <address class="small text-darker"><a href="callto:<?= $infos->getTel1() ?>"><?= $infos->getTel1() ?></a></address>
+              <address class="small text-darker"><a href="callto:<?= esc($infos->getTel1()) ?>"><?= esc($infos->getTel1()) ?></a></address>
               <?php if (!empty($infos->getTel2())): ?>
-                  <address class="small text-darker"><a href="callto:<?= $infos->getTel2() ?>"><?= $infos->getTel2() ?></a></address>
+                  <address class="small text-darker"><a href="callto:<?= esc($infos->getTel2()) ?>"><?= esc($infos->getTel2()) ?></a></address>
               <?php endif; ?>
               <h4>Email</h4>
-              <address class="small text-darker"><a href="mailto:<?= $infos->getEmail() ?>"><?= $infos->getEmail() ?></a></address>
+              <address class="small text-darker"><a href="mailto:<?= esc($infos->getEmail()) ?>"><?= esc($infos->getEmail()) ?></a></address>
             </div>
             <ul class="list-inline big text-dark">
               <li><a href="https://www.instagram.com/paparazza_lyon" class="fa-instagram"></a></li>
