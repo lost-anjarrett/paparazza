@@ -1,1 +1,26 @@
-<p>Bienvenue dans la section administrateur</p>
+<h1 class="text-center well well-bottom bg-dark">Tableau de bord</h1>
+<section class="text-center well">
+    <div class="container container-wide bg-white">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 well">
+                <p>Bienvenue <b><?= esc($_SESSION['admin']->getName()) ?></b>, votre dernière connexion remonte au <?= $_SESSION['admin']->getLastConnexion() ?>.</p>
+            </div>
+            <div class="col-md-6 col-md-offset-3 well-bottom">
+                <h3>Voulez-vous modifier l'un de ces éléments ?</h3>
+                <a href="<?= url('admin/gallery') ?>" class="btn btn-primary btn-sm btn-bg-primary">Galerie Photo</a>
+                <a href="<?= url('admin/slider') ?>" class="btn btn-primary btn-sm btn-bg-primary">Slider</a>
+            </div>
+            <div class="col-md-6 col-md-offset-3 well-bottom">
+                <h3>Voulez-vous modifier les informations concernant...</h3>
+                <p>
+                    <a href="<?= url('admin/manager') ?>">Les administrateurs du site ?</a>
+                    <a href="<?= url('admin/manager') ?>" class="text-primary">Modifier</a>
+                </p>
+                <p>
+                    <a href="<?= url('admin/infos') ?>">Les informations publiques visibles sur le site ?</a>
+                    <a href="<?= url('admin/infos') ?>" class="text-primary">Modifier</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>

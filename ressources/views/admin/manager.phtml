@@ -6,6 +6,14 @@
                 <h3>Ajouter un nouvel administrateur</h3>
                 <a href="<?= url('admin/manager/create') ?>" class="btn btn-primary">Ajouter</a>
             </div>
+
+            <div class="col-md-6 col-md-offset-3 well-bottom">
+                <h3>Modifier votre mot de passe</h3>
+                <form action="<?= url('admin/manager/edit') ?>" method="post">
+                    <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
+                    <input type="submit" class="btn btn-primary" value="Modifier">
+                </form>
+            </div>
             <div class="col-md-6 col-md-offset-3 well-bottom">
                 <h3 class="well-bottom">Supprimer un administrateur</h3>
                 <form action="#" method="post" id="delete-admin" data-logged-id="<?= $_SESSION['admin']->getId() ?>" data-confirm-suppr="true">
@@ -19,14 +27,6 @@
                     <input type="password" name="password" class="form-control" placeholder="Veuillez confirmer votre mot de passe" style="display:none;">
                     <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
                     <input type="submit" class="btn btn-primary disabled" disabled value="Supprimer">
-                </form>
-            </div>
-
-            <div class="col-md-6 col-md-offset-3 well-bottom">
-                <h3>Modifier votre mot de passe</h3>
-                <form action="<?= url('admin/manager/edit') ?>" method="post">
-                    <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
-                    <input type="submit" class="btn btn-primary" value="Modifier">
                 </form>
             </div>
             <div class="col-md-6 col-md-offset-3 well-bottom">

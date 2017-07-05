@@ -44,3 +44,8 @@ function checkExtension($file){
 	$uploadExtension = strtolower(substr(strrchr($file, '.'), 1) );
 	return in_array($uploadExtension, $acceptedExtensions);
 }
+
+function esc($var)
+{
+    return htmlspecialchars($var, ENT_QUOTES, 'UTF-8');
+}
