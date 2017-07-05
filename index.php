@@ -9,9 +9,9 @@ $app['debug'] = true;
 
 // Listes des routes:
 $app->get('/', 'Projet\Controllers\PageController::index');
-$app->get('/?page={page}', 'Projet\Controllers\PageController::index')
-    ->assert('page', '\d+');
 $app->match('home', 'Projet\Controllers\PageController::index');
+$app->match('/{page}', 'Projet\Controllers\PageController::galleryAjax')
+    ->assert('id', '\d+');
 
 // INDEX DEV
 $app->get('/', 'Projet\Controllers\PageController::dev');

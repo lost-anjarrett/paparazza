@@ -43,6 +43,29 @@ class PageController extends \System\Controller
         return $view;
     }
 
+    public function galleryAjax($page){
+
+      $limit = 4;
+
+      $imgsCounted = (new GalleryImg)->getFromTo($page, $limit);
+
+      $imgs = $imgsCounted['objects'];
+      //the total of imgs registered
+      $rowNumber = $imgsCounted['rowNumber'];
+      //total of pages needed
+      $numberOfPages = ceil($rowNumber / $limit);
+
+      ob_start();
+
+      include(__DIR__ . '/../../ressources/views/pages/getResult.phtml');
+
+      $view = ob_get_contents();
+
+      ob_end_clean();
+
+      return $view;
+    }
+
     public function dev()
     {
         ob_start();

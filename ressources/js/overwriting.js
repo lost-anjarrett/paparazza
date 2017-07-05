@@ -127,16 +127,16 @@ $(function(){
         type: "GET",
         data: {page: $("#gallery a.btn").attr('id')},
         success: function(data){
-          $("#gallery").html(data);
+          $("#galleryImg").html(data);
           console.log('success');
         }
       });
     }
 
-    $("#gallery a.btn").click(function(e){
-      e.preventDefault()
-      console.log($(this).attr('id'));
-      getResult('ressources/views/getResult.php');
+    $("#gallery a.pagination").click(function(e){
+      e.preventDefault();
+      var url = $(this).attr('id');
+      getResult(url);
     });
 
 

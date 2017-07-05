@@ -190,7 +190,7 @@ abstract class Model {
         $datas = $this->db->query('SELECT SQL_CALC_FOUND_ROWS * FROM ' . static::TABLE . ' LIMIT ' . $limit . ' OFFSET ' . $offset);
 
         $objects = $this->getCollection($datas);
-
+        //utiliser queryOne
         $rowNumber = $this->db->query('SELECT found_rows()');
 
         $rowNumber  = $rowNumber[0]['found_rows()'];
