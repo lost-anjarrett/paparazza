@@ -1,7 +1,9 @@
 <footer class="page-footer footer-centered text-center bg-dark">
   <section class="footer-content">
     <div class="container container-wide">
-      <div class="navbar-brand"><a href="index.html">PAPARAZZA</a></div>
+      <div class="navbar-brand">
+        <a href="index.html">PAPARAZZA</a>
+      </div>
       <address><?= $infos->getAdress1() ?><br>
         <?php if (!empty($infos->getCompltAdress1())): ?>
             <?= $infos->getCompltAdress1() ?><br>

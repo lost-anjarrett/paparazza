@@ -53,6 +53,13 @@ article.blog-post .article-column-img img{
   transform: translateY(-40%);
 }
 
+article.blog-post .article-column-img img.long{
+  -ms-transform: translateY(-15%);
+  -moz-transform: translateY(-15%);
+  -webkit-transform: translateY(-15%);
+  transform: translateY(-15%);
+}
+
 #logo-text{
   display:none;
 }
@@ -116,7 +123,7 @@ section#selling{
 
 /* RESPONSIVE */
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 1000px){
 
   #logo-text{
     display: block;
@@ -126,6 +133,14 @@ section#selling{
 
   #logo-small{
     display:none;
+  }
+
+  article.blog-post .article-column-img img{
+    margin-top: 19vh;
+    -ms-transform: translateY(-15%);
+    -moz-transform: translateY(-15%);
+    -webkit-transform: translateY(-15%);
+    transform: translateY(-15%);
   }
 }
 
@@ -200,6 +215,10 @@ i.fa {
 }
 
 /*footer*/
+
+.page-footer .navbar-brand a {
+	color: white;
+}
 
 .page-footer.footer-centered .footer-content address {
 	width: 15rem;
