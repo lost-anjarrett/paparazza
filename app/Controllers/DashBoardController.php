@@ -16,15 +16,14 @@ class DashBoardController extends \System\Controller
       return $this->view('accueil');
     }
 
-    public function show($slug)
+    public function saveText()
     {
-      if (!isLogged()) {
-          $this->redirect('home');
-      }
+        if (!isLogged()) {
+            $this->redirect('home');
+        }
 
-      return $this->view($slug);
+        return '<b>Hello</b>';
+
     }
-
-
 
 }

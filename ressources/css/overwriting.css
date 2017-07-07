@@ -230,3 +230,19 @@ i.fa {
 .page-footer.footer-centered .footer-content address:nth-child(even) {
 	text-align: right;
 }
+
+/*content tools (text-editor)*/
+
+/* Left align */
+[data-editable] .align-left {
+    clear: initial;
+    float: left;
+    margin-right: 0.5em;
+}
+
+/* Right align */
+[data-editable] .align-right {
+    clear: initial;
+    float: right;
+    margin-left: 0.5em;
+}

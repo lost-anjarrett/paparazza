@@ -11,14 +11,15 @@ $app['debug'] = true;
 $app->get('/', 'Projet\Controllers\PageController::index');
 $app->match('home', 'Projet\Controllers\PageController::index');
 $app->match('/{page}', 'Projet\Controllers\PageController::galleryAjax')
-    ->assert('id', '\d+');
+    ->assert('page', '\d+');
 
 // INDEX DEV
-$app->get('/', 'Projet\Controllers\PageController::dev');
+// $app->get('/', 'Projet\Controllers\PageController::dev');
 
 $app->match('admin', 'Projet\Controllers\AuthController::login');
 $app->match('logout', 'Projet\Controllers\AuthController::logout');
 
+// TABLEAU DE BORD
 $app->match('admin/dashboard', 'Projet\Controllers\DashBoardController::index');
 
 // SLIDER
@@ -50,6 +51,10 @@ $app->post('admin/infos/edit', '\Projet\Controllers\InfoController::edit');
 
 // CONTACT
 $app->match('contact', '\Projet\Controllers\MailController::contact');
+
+// EDITEUR DE TEXTE (SAUVEGARDE)
+$app->post('save-my-text', '\Projet\Controllers\DashBoardController::saveText');
+
 
 // MENTIONS LEGALES
 $app->match('mentions-legales', '\Projet\Controllers\PageController::mentions');
