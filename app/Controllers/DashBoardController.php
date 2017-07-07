@@ -23,19 +23,18 @@ class DashBoardController extends \System\Controller
         }
 
         $location = __DIR__ . '/../../ressources/views/pages/test.phtml';
-        // $page = fopen($location, 'r+');
         $html = file_get_contents($location);
 
-        $search = "/(<!-- editable jukeback -->)([\n\t\r].*)*(<!-- endeditable jukeback -->)/";
-        $replace = "<!-- editable jukeback -->\n" . $_POST['jukeback'] . "\n<!-- endeditable jukeback -->";
-        $html = preg_replace($search,$replace,$html);
+        foreach ($_POST as $product => $content) {
+            $search = "/(<!-- editable ".$product." -->)([\n\t\r].*)*(<!-- endeditable ".$product." -->)/";
+            $replace = "<!-- editable ".$product." -->\n" . $content . "\n<!-- endeditable ".$product." -->";
+            $html = preg_replace($search,$replace,$html);
+        }
 
-        // fwrite($page, $html);
-        //fermetuer du fichier
-        // fclose($page);
+
         file_put_contents($location, $html);
 
-        return $html;
+        return 'ok';
 
     }
 
