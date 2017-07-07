@@ -22,7 +22,7 @@ class DashBoardController extends \System\Controller
             $this->redirect('home');
         }
 
-        $location = __DIR__ . '/../../ressources/views/pages/test.phtml';
+        $location = __DIR__ . '/../../ressources/views/pages/products.phtml';
         $html = file_get_contents($location);
 
         foreach ($_POST as $product => $content) {
