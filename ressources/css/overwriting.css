@@ -246,3 +246,10 @@ i.fa {
     float: right;
     margin-left: 0.5em;
 }
+
+/* liste ordonnées */
+.instructions {
+    padding-left: 18px;
+    list-style: decimal;
+    font-weight: bold;
+}

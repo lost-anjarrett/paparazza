@@ -1,0 +1,51 @@
+<h1 class="text-center well well-bottom bg-dark">Produits</h1>
+<section class="text-center well">
+    <div class="container container-wide bg-white">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 well">
+                <h3>Modifier le texte d'un produit</h3>
+                <p class="text-left">Pour modifier le texte explicatif des produits, vous devez : </p>
+                <ol class="text-left instructions">
+                    <li>1.  aller sur la page d'accueil</li>
+                    <li>2.  activer l'éditeur en ligne (bouton bleu à gauche de la barre de navigation)</li>
+                    <li>3.  faire vos modifications directement sur la page</li>
+                    <li>4.  sauvegarder votre travail</li>
+                </ol>
+                <a href="<?= url('home#products') ?>" class="btn btn-primary">Aller à l'accueil</a>
+            </div>
+            <div class="col-md-6 col-md-offset-3 well-bottom">
+                <p class="bg-warning text-white"><b>Attention</b>, les modifications sont écrites directement dans le fichier, par conséquent elles sont mises en ligne dès que vous sauvegardez ! Pensez à faire une sauvegarde-backup au préalable, au cas où...</p>
+            </div>
+            <div class="col-md-6 col-md-offset-3 well">
+                <h3>Faire une sauvegarde-backup</h3>
+                <p class="text-left">Enregistre le contenu de la section produits tel qu'il est à l'instant où vous faites le backup.</p>
+                <form action="<?= url('admin/products/save-backup') ?>" method="post">
+                    <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
+                    <input type="submit" class="btn btn-primary" value="Backup">
+                </form>
+            </div>
+            <div class="col-md-6 col-md-offset-3 well">
+                <h3>Récupérer une sauvegarde-backup</h3>
+                <p class="text-left">Choisissez une sauvegarde parmi la liste disponible</p>
+                <?php if (!is_null($backups)): ?>
+                    <form action="<?= url('admin/products/load-backup') ?>" method="post" data-confirm-suppr="true">
+                        <select class="form-control" name="backupToLoad">
+                            <option value="0" selected="true">----</option>
+                            <?php foreach ($backups as $backup): ?>
+                                <option value="<?= $backup->getFilename() ?>"><?= $backup->getDoc() ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                        <input type="password" name="password" class="form-control" placeholder="Veuillez confirmer votre mot de passe" style="display:none;">
+                        <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
+                        <input type="submit" class="btn btn-primary disabled" disabled value="Récupérer">
+                    </form>
+                <?php else: ?>
+                    <p>Vous n'avez pas de backup pour le moment</p>
+                <?php endif; ?>
+            </div>
+            <div class="col-md-6 col-md-offset-3 well-bottom">
+                <a href="<?= url('admin/dashboard') ?>" class="pull-right btn btn-primary btn-sm btn-bg-primary"><i class="fa fa-long-arrow-left" aria-hidden="true"></i> Retour</a>
+            </div>
+        </div>
+    </div>
+</section>

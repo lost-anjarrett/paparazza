@@ -53,7 +53,10 @@ $app->post('admin/infos/edit', '\Projet\Controllers\InfoController::edit');
 $app->match('contact', '\Projet\Controllers\MailController::contact');
 
 // EDITEUR DE TEXTE (SAUVEGARDE)
-$app->post('save-my-page', '\Projet\Controllers\DashBoardController::savePage');
+$app->post('save-page', '\Projet\Controllers\ProductController::savePage');
+$app->match('admin/products', 'Projet\Controllers\ProductController::index');
+$app->post('admin/products/save-backup', 'Projet\Controllers\ProductController::saveBackup');
+$app->post('admin/products/load-backup-{filename}', 'Projet\Controllers\ProductController::loadBackup');
 
 
 // MENTIONS LEGALES
