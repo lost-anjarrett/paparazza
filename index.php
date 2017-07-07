@@ -53,7 +53,7 @@ $app->post('admin/infos/edit', '\Projet\Controllers\InfoController::edit');
 $app->match('contact', '\Projet\Controllers\MailController::contact');
 
 // EDITEUR DE TEXTE (SAUVEGARDE)
-$app->post('save-my-text', '\Projet\Controllers\DashBoardController::saveText');
+$app->post('save-my-page', '\Projet\Controllers\DashBoardController::savePage');
 
 
 // MENTIONS LEGALES

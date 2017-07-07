@@ -33,6 +33,7 @@ window.addEventListener('load', function() {
                 if (ev.target.status == '200') {
                     // Save was successful, notify the user with a flash
                     new ContentTools.FlashUI('ok');
+                    // console.log('envoyé mazaltof');
                 } else {
                     // Save failed, notify the user with a flash
                     new ContentTools.FlashUI('no');
@@ -44,6 +45,7 @@ window.addEventListener('load', function() {
         xhr.addEventListener('readystatechange', onStateChange);
         xhr.open('POST', 'save-my-page');
         xhr.send(payload);
+        console.log(payload);
     });
 
 
