@@ -11,7 +11,7 @@
                     <li>3.  faire vos modifications directement sur la page</li>
                     <li>4.  sauvegarder votre travail</li>
                 </ol>
-                <a href="<?= url('home#products') ?>" class="btn btn-primary">Aller à l'accueil</a>
+                <a href="<?= url('home#products') ?>" class="btn btn-primary">Aller à la section produits</a>
             </div>
             <div class="col-md-6 col-md-offset-3 well-bottom">
                 <p class="bg-warning text-white"><b>Attention</b>, les modifications sont écrites directement dans le fichier, par conséquent elles sont mises en ligne dès que vous sauvegardez ! Pensez à faire une sauvegarde-backup au préalable, au cas où...</p>
@@ -28,11 +28,11 @@
                 <h3>Récupérer une sauvegarde-backup</h3>
                 <p class="text-left">Choisissez une sauvegarde parmi la liste disponible</p>
                 <?php if (!is_null($backups)): ?>
-                    <form action="<?= url('admin/products/load-backup') ?>" method="post" data-confirm-suppr="true">
-                        <select class="form-control" name="backupToLoad">
-                            <option value="0" selected="true">----</option>
+                    <form id="load-backup" action="<?= url('admin/products/load-backup') ?>" method="post" data-confirm-suppr="true">
+                        <select class="form-control" name="id">
+                            <option value="0" selected="true">date &amp; heure -- <i>description</i></option>
                             <?php foreach ($backups as $backup): ?>
-                                <option value="<?= $backup->getFilename() ?>"><?= $backup->getDoc() ?></option>
+                                <option value="<?= $backup->getId() ?>"><?= $backup->getAddedAt() ?> -- <i><?= $backup->getDescription() ?></i></option>
                             <?php endforeach; ?>
                         </select>
                         <input type="password" name="password" class="form-control" placeholder="Veuillez confirmer votre mot de passe" style="display:none;">

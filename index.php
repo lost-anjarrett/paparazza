@@ -52,11 +52,12 @@ $app->post('admin/infos/edit', '\Projet\Controllers\InfoController::edit');
 // CONTACT
 $app->match('contact', '\Projet\Controllers\MailController::contact');
 
-// EDITEUR DE TEXTE (SAUVEGARDE)
+// PRODUITS - EDITEUR DE TEXTE
 $app->post('save-page', '\Projet\Controllers\ProductController::savePage');
 $app->match('admin/products', 'Projet\Controllers\ProductController::index');
-$app->post('admin/products/save-backup', 'Projet\Controllers\ProductController::saveBackup');
-$app->post('admin/products/load-backup-{filename}', 'Projet\Controllers\ProductController::loadBackup');
+// BACKUP
+$app->post('admin/products/save-backup', 'Projet\Controllers\BackupController::save');
+$app->post('admin/products/load-backup', 'Projet\Controllers\BackupController::load');
 
 
 // MENTIONS LEGALES

@@ -34,12 +34,34 @@ $(function(){
         });
     }
 
+    // SELECT Récuperation BACKUP
+
+    var $loadBackupForm = $('#load-backup');
+
+    if ($loadBackupForm.length) {
+        var $loadFormBtn = $loadBackupForm.find('.btn');
+        var $loadFormPass = $loadBackupForm.find('[name="password"]');
+
+        $loadBackupForm.find('select').change(function() {
+            var loadId = $(this).val();
+            if(loadId == 0) {
+                $loadFormBtn.addClass('disabled');
+                $loadFormBtn.attr('disabled', 'disabled');
+                $loadFormPass.slideUp();
+            } else {
+                $loadFormBtn.removeClass('disabled');
+                $loadFormBtn.removeAttr('disabled');
+                $loadFormPass.slideDown();
+            }
+        });
+    }
+
 
     // CONFIRMATION POUR LES FORMULAIRES QUI GERENT UNE SUPPRESSION EN BDD
 
     $('form').submit(function() {
         if ($(this).data('confirmSuppr')) {
-            return confirm('Attention, la suppression est définitive. Êtes vous sûr de vouloir continuer ?');
+            return confirm('Attention, cette action est définitive. Êtes vous sûr de vouloir continuer ?');
         }
     });
 

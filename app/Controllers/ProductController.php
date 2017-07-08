@@ -2,7 +2,7 @@
 
 namespace Projet\Controllers;
 
-use DateTime;
+use Projet\Models\Backup;
 
 class ProductController extends \System\Controller
 {
@@ -16,7 +16,11 @@ class ProductController extends \System\Controller
             $this->redirect('home');
         }
 
-        return $this->view('products');
+        $backups = (new Backup)->findAll();
+
+        $data = compact('backups');
+
+        return $this->view('products', $data);
 
     }
 
@@ -42,42 +46,5 @@ class ProductController extends \System\Controller
 
     }
 
-    public function saveBackup()
-    {
-        if (!isLogged()) {
-            $this->redirect('home');
-        }
 
-        $products = __DIR__ . '/../../ressources/views/pages/products.phtml';
-        $html = file_get_contents($products);
-
-        $filename = (new DateTime)->format('Y-m-d_H-i-s');
-        $backup = __DIR__ . '/../../ressources/views/backups/'.$filename.'.phtml';
-
-        file_put_contents($backup, $html);
-
-        $this->redirect('admin/products');
-
-    }
-
-    public function loadBackup($filename)
-    {
-        if (!isLogged()) {
-            $this->redirect('home');
-        }
-
-
-        $backup = __DIR__ . '/../../ressources/views/backups/'.$filename;
-        $html = file_get_contents($backup);
-
-        if ($html) {
-            $products = __DIR__ . '/../../ressources/views/pages/products.phtml';
-            file_put_contents($products, $html);
-        } else {
-            die 'Une erreur est survenue lors de la récupération';
-        }
-
-        $this->redirect('admin/products');
-
-    }
 }
