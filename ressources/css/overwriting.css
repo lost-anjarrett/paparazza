@@ -253,3 +253,12 @@ i.fa {
     list-style: decimal;
     font-weight: bold;
 }
+
+.rd-mailform .form-group input, .rd-mailform .form-group textarea {
+    text-transform: none;
+
+}
+.rd-mailform .form-group input:placeholder-shown, .rd-mailform .form-group textarea:placeholder-shown {
+	text-transform: uppercase;
+
+}

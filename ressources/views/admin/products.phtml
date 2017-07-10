@@ -18,8 +18,10 @@
             </div>
             <div class="col-md-6 col-md-offset-3 well">
                 <h3>Faire une sauvegarde-backup</h3>
-                <p class="text-left">Enregistre le contenu de la section produits tel qu'il est à l'instant où vous faites le backup.</p>
+                <p class="text-left well-bottom">Enregistre le contenu de la section produits tel qu'il est à l'instant où vous faites le backup.</p>
                 <form action="<?= url('admin/products/save-backup') ?>" method="post">
+                    <label for="backupDescription"></label>
+                    <input type="text" name="description" class="form-control" placeholder="Description (facultatif)" id="backupDescription" maxlength="200">
                     <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
                     <input type="submit" class="btn btn-primary" value="Backup">
                 </form>
@@ -27,12 +29,12 @@
             <div class="col-md-6 col-md-offset-3 well">
                 <h3>Récupérer une sauvegarde-backup</h3>
                 <p class="text-left">Choisissez une sauvegarde parmi la liste disponible</p>
-                <?php if (!is_null($backups)): ?>
+                <?php if (isset($backups)): ?>
                     <form id="load-backup" action="<?= url('admin/products/load-backup') ?>" method="post" data-confirm-suppr="true">
                         <select class="form-control" name="id">
                             <option value="0" selected="true">date &amp; heure -- <i>description</i></option>
                             <?php foreach ($backups as $backup): ?>
-                                <option value="<?= $backup->getId() ?>"><?= $backup->getAddedAt() ?> -- <i><?= $backup->getDescription() ?></i></option>
+                                <option value="<?= $backup->getId() ?>"><?= $backup->getAddedAt() ?> -- <i><?= esc($backup->getDescription()) ?></i></option>
                             <?php endforeach; ?>
                         </select>
                         <input type="password" name="password" class="form-control" placeholder="Veuillez confirmer votre mot de passe" style="display:none;">

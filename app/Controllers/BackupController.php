@@ -17,14 +17,15 @@ class BackupController extends \System\Controller
         }
 
         checkCsrf();
+        extract($_POST);
 
         $content = file_get_contents(static::PRODUCTS_LOCATION);
 
-        $backup = (new Backup)->saveFile($content)
+        $backup = (new Backup)->setDescription($description)
+                ->saveFile($content)
                 ->create();
 
         $this->redirect('admin/products');
-
     }
 
     public function load()
@@ -53,6 +54,9 @@ class BackupController extends \System\Controller
 
                 if ($content) {
                     file_put_contents(static::PRODUCTS_LOCATION, $content);
+                }
+                else {
+                    die 'Une erreur est survenue lors de la récupération';
                 }
             }
         }
