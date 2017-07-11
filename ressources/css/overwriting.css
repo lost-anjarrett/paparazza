@@ -31,7 +31,7 @@ img.products{
   border: 2px solid #FFFFFF;
 }
 
-.overflow-h{
+/*.overflow-h{
   overflow: hidden;
 }
 
@@ -58,6 +58,57 @@ article.blog-post .article-column-img img.long{
   -moz-transform: translateY(-15%);
   -webkit-transform: translateY(-15%);
   transform: translateY(-15%);
+}*/
+#products article:not(#digisport) {
+    display: flex;
+    align-items: stretch;
+}
+#products article:not(#digisport) > div {
+    float: none;
+    display: inline-block;
+    margin: 0;
+    min-height: 100%;
+}
+
+.article-column-text {
+    width: 67%;
+}
+.article-column-img {
+    width: 33%;
+    padding: 25px;
+}
+.article-column-img a + a {
+    margin-top: 12px;
+}
+.article-column-img i.fa {
+    vertical-align: middle;
+}
+.article-column-img a span, #digisport a span {
+    padding-right: 12px;
+    opacity: 0;
+    transition: all .3s;
+}
+.article-column-img a:hover span, #digisport a:hover span {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    #products article:not(#digisport) {
+        flex-direction: column;
+        flex-basis: auto;
+    }
+    .article-column-img, .article-column-text {
+        width: 100%;
+    }
+    .article-column-img img {
+        max-width: 75%;
+    }
+    .article-column-img span {
+        display: none;
+    }
+    #products p, #products h3, #products h4 {
+        text-align: center;
+    }
 }
 
 #logo-text{
@@ -135,13 +186,13 @@ section#selling{
     display:none;
   }
 
-  article.blog-post .article-column-img img{
+  /*article.blog-post .article-column-img img{
     margin-top: 19vh;
     -ms-transform: translateY(-15%);
     -moz-transform: translateY(-15%);
     -webkit-transform: translateY(-15%);
     transform: translateY(-15%);
-  }
+  }*/
 }
 
 /**************/
@@ -261,12 +312,4 @@ i.fa {
 .rd-mailform .form-group input:placeholder-shown, .rd-mailform .form-group textarea:placeholder-shown {
 	text-transform: uppercase;
 
-}
-.article-column-img a span, #digisport a span {
-    padding-right: 12px;
-    opacity: 0;
-    transition: all .3s;
-}
-.article-column-img a:hover span, #digisport a:hover span {
-    opacity: 1;
 }
