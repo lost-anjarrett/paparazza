@@ -31,34 +31,43 @@ img.products{
   border: 2px solid #FFFFFF;
 }
 
-/*.overflow-h{
-  overflow: hidden;
+#logo-text{
+  display:none;
 }
 
-article.blog-post .article-column-text{
-  padding-bottom:50em;
-  margin-bottom:-48em;
+#logo-small{
+  max-width: 80%;
 }
 
-article.blog-post .article-column-img{
-  padding-bottom:50em;
-  margin-bottom:-50em;
+/* PRODUCTS */
+section#products,
+section#selling{
+  line-height: 1.5rem;
 }
 
-article.blog-post .article-column-img img{
-  margin-top: 19vh;
-  -ms-transform: translateY(-40%);
-  -moz-transform: translateY(-40%);
-  -webkit-transform: translateY(-40%);
-  transform: translateY(-40%);
+.video-container {
+	position: relative;
+	padding-bottom: 45%;
+	padding-top: 30px;
+	height: 0;
+	overflow: hidden;
+  margin: 3rem auto 0;
+  max-width: 100%;
+  float: none;
+  clear: both;
 }
 
-article.blog-post .article-column-img img.long{
-  -ms-transform: translateY(-15%);
-  -moz-transform: translateY(-15%);
-  -webkit-transform: translateY(-15%);
-  transform: translateY(-15%);
-}*/
+.video-container iframe,
+.video-container object,
+.video-container embed {
+	position: absolute;
+	top: 0;
+	left: 0;
+  margin: 0 10%;
+	width: 80%;
+	height: 80%;
+}
+
 #products article:not(#digisport) {
     display: flex;
     align-items: stretch;
@@ -111,43 +120,6 @@ article.blog-post .article-column-img img.long{
     }
 }
 
-#logo-text{
-  display:none;
-}
-
-#logo-small{
-  max-width: 80%;
-}
-
-/* PRODUCTS */
-section#products,
-section#selling{
-  line-height: 1.5rem;
-}
-
-.video-container {
-	position: relative;
-	padding-bottom: 45%;
-	padding-top: 30px;
-	height: 0;
-	overflow: hidden;
-  margin: 3rem auto 0;
-  max-width: 100%;
-  float: none;
-  clear: both;
-}
-
-.video-container iframe,
-.video-container object,
-.video-container embed {
-	position: absolute;
-	top: 0;
-	left: 0;
-  margin: 0 10%;
-	width: 80%;
-	height: 80%;
-}
-
 /* SELLING */
 
 .nav-tabs > li.active > a,
@@ -186,13 +158,6 @@ section#selling{
     display:none;
   }
 
-  /*article.blog-post .article-column-img img{
-    margin-top: 19vh;
-    -ms-transform: translateY(-15%);
-    -moz-transform: translateY(-15%);
-    -webkit-transform: translateY(-15%);
-    transform: translateY(-15%);
-  }*/
 }
 
 /**************/
@@ -246,6 +211,14 @@ h4 a:hover {
 .contact-form .btn {
     border-color: #22786f;
 }
+.rd-mailform .form-group input, .rd-mailform .form-group textarea {
+    text-transform: none;
+
+}
+.rd-mailform .form-group input:placeholder-shown, .rd-mailform .form-group textarea:placeholder-shown {
+	text-transform: uppercase;
+
+}
 
 /*dropdown*/
 .rd-navbar-static .rd-navbar-nav > li > .rd-navbar-dropdown {
@@ -298,18 +271,9 @@ i.fa {
     margin-left: 0.5em;
 }
 
-/* liste ordonnées */
+/* produits (section admin) */
 .instructions {
     padding-left: 18px;
     list-style: decimal;
     font-weight: bold;
-}
-
-.rd-mailform .form-group input, .rd-mailform .form-group textarea {
-    text-transform: none;
-
-}
-.rd-mailform .form-group input:placeholder-shown, .rd-mailform .form-group textarea:placeholder-shown {
-	text-transform: uppercase;
-
 }
