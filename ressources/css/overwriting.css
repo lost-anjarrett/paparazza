@@ -255,6 +255,14 @@ i.fa {
 	text-align: right;
 }
 
+/* produits (section admin) */
+.instructions {
+    padding-left: 18px;
+    list-style: decimal;
+    font-weight: bold;
+}
+
+
 /*content tools (text-editor)*/
 
 /* Left align */
@@ -263,17 +271,25 @@ i.fa {
     float: left;
     margin-right: 0.5em;
 }
-
 /* Right align */
 [data-editable] .align-right {
     clear: initial;
     float: right;
     margin-left: 0.5em;
 }
-
-/* produits (section admin) */
-.instructions {
-    padding-left: 18px;
-    list-style: decimal;
-    font-weight: bold;
+[data-editable] h1 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #000;
+}
+[data-editable] h2 {
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: #000;
+}
+[data-editable] a {
+    color: #3498db;
+}
+[data-editable] a:hover, [data-editable] a:focus {
+    color: #217dbb;
 }

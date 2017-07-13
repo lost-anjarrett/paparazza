@@ -2,6 +2,17 @@
 window.addEventListener('load', function() {
     var editor;
 
+    ContentTools.StylePalette.add([
+        new ContentTools.Style('Inset 1 (écarte l\'élément sélectionné du précédent)', 'inset-1', ['p','h2', 'h1']),
+        new ContentTools.Style('Texte noir', 'text-base', ['p','h2','h1']),
+        new ContentTools.Style('Texte gris', 'text-darker', ['p','h2','h1']),
+        new ContentTools.Style('Texte blanc', 'text-white', ['p','h2','h1']),
+        new ContentTools.Style('Fond rouge', 'bg-danger', ['p','h2','h1']),
+        new ContentTools.Style('Fond orange', 'bg-warning', ['p','h2','h1']),
+        new ContentTools.Style('Fond bleu', 'bg-info', ['p','h2','h1']),
+        new ContentTools.Style('Fond vert', 'bg-success', ['p','h2','h1'])
+    ]);
+
     editor = ContentTools.EditorApp.get();
     editor.init('*[data-editable]', 'data-name');
 
@@ -43,7 +54,7 @@ window.addEventListener('load', function() {
 
         xhr = new XMLHttpRequest();
         xhr.addEventListener('readystatechange', onStateChange);
-        xhr.open('POST', 'save-my-page');
+        xhr.open('POST', 'save-page');
         xhr.send(payload);
         console.log(payload);
     });
