@@ -16,10 +16,14 @@ class BackupController extends \System\Controller
             $this->redirect('home');
         }
 
-        checkCsrf();
+        // checkCsrf();
         extract($_POST);
 
         $content = file_get_contents(static::PRODUCTS_LOCATION);
+
+        if ($content === false) {
+            $this->redirect('admin/products?error="Getting content"');
+        }
 
         $backup = (new Backup)->setDescription($description)
                 ->saveFile($content)
@@ -56,7 +60,7 @@ class BackupController extends \System\Controller
                     file_put_contents(static::PRODUCTS_LOCATION, $content);
                 }
                 else {
-                    die 'Une erreur est survenue lors de la récupération';
+                    $this->redirect('admin/products?status=pbRecupContent');
                 }
             }
         }

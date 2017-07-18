@@ -113,7 +113,9 @@ class Backup extends Model
         $this->filename .= '.phtml';
         $location = __DIR__ . '/../../ressources/views/'.static::REPO.'/'.$this->filename;
 
-        file_put_contents($location, $content);
+        if(file_put_contents($location, $content) === false){
+            redirect('../products?error="Saving file"');
+        }
 
         return $this;
 
@@ -126,7 +128,7 @@ class Backup extends Model
 
     public function getContent()
     {
-        return file_get_contents(__DIR__ . '/../../ressources/views/'.static::REPO.'/'.$backup->filename);
+        return file_get_contents(__DIR__ . '/../../ressources/views/'.static::REPO.'/'.$this->filename);
     }
 
 }
