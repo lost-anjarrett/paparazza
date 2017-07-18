@@ -79,25 +79,25 @@ section#selling{
     min-height: 100%;
 }
 
-.article-column-text {
+ #products .article-column-text {
     width: 67%;
 }
 .article-column-img {
     width: 33%;
     padding: 25px;
 }
-.article-column-img a + a {
+.article-column-img p {
     margin-top: 12px;
 }
-.article-column-img i.fa {
+.article-column-img i.fa, #digisport i.fa {
     vertical-align: middle;
 }
-.article-column-img a span, #digisport a span {
+.article-column-img p span, #digisport a span {
     padding-right: 12px;
     opacity: 0;
     transition: all .3s;
 }
-.article-column-img a:hover span, #digisport a:hover span {
+.article-column-img p:hover span, #digisport a:hover span {
     opacity: 1;
 }
 

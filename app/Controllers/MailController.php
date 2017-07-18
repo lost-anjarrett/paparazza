@@ -6,10 +6,10 @@ use Projet\Models\Info;
 
 class MailController extends \System\Controller
 {
-    const HOST_NAME = "ssl0.ovh.net";
+    const HOST_NAME = '';
     const TCP_PORT = 587;
-    const USERNAME = 'contact@paparazza.fr';
-    const PASSWORD = 'iris2007%';
+    const USERNAME = '';
+    const PASSWORD = '';
 
 
     public function contact()
