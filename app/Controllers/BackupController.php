@@ -8,7 +8,17 @@ use Projet\Models\Backup;
 
 class BackupController extends \System\Controller
 {
-    const PRODUCTS_LOCATION = __DIR__ . '/../../ressources/views/pages/products.phtml';
+    const FILES_LOCATION = [
+        __DIR__ . '/../../ressources/views/pages/products.phtml',
+        __DIR__ . '/../../ressources/views/pages/contact.phtml',
+        __DIR__ . '/../../ressources/views/pages/gallery.phtml',
+        __DIR__ . '/../../ressources/views/pages/products-mosaique.phtml',
+        __DIR__ . '/../../ressources/views/pages/partenaires.phtml',
+        __DIR__ . '/../../ressources/views/pages/products-pastilles.phtml',
+        __DIR__ . '/../../ressources/views/pages/prestations.phtml',
+        __DIR__ . '/../../ressources/views/pages/products.phtml',
+        __DIR__ . '/../../ressources/views/pages/selling.phtml'
+    ];
 
     public function save()
     {
@@ -19,7 +29,7 @@ class BackupController extends \System\Controller
         // checkCsrf();
         extract($_POST);
 
-        $content = file_get_contents(static::PRODUCTS_LOCATION);
+        $content = file_get_contents(static::FILES_LOCATION[0]);
 
         if ($content === false) {
             $this->redirect('admin/products?error="Getting content"');
@@ -57,7 +67,7 @@ class BackupController extends \System\Controller
                 $content = $backup->getContent();
 
                 if ($content) {
-                    file_put_contents(static::PRODUCTS_LOCATION, $content);
+                    file_put_contents(static::FILES_LOCATION[0], $content);
                 }
                 else {
                     $this->redirect('admin/products?status=pbRecupContent');

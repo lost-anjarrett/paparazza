@@ -46,6 +46,8 @@ $app->post('admin/infos/edit', '\Projet\Controllers\InfoController::edit');
 $app->match('contact', '\Projet\Controllers\MailController::contact');
 // EDITEUR DE TEXTE
 $app->post('save-page', '\Projet\Controllers\PageController::savePage');
+// HELP
+$app->match('admin/help', '\Projet\Controllers\PageController::help');
 // BACKUP
 $app->post('admin/products/save-backup', 'Projet\Controllers\BackupController::save');
 $app->post('admin/products/load-backup', 'Projet\Controllers\BackupController::load');

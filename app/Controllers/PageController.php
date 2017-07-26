@@ -15,6 +15,7 @@ class PageController extends \System\Controller
         'contact'         => __DIR__ . '/../../ressources/views/pages/contact.phtml',
         'gallery'         => __DIR__ . '/../../ressources/views/pages/gallery.phtml',
         'galleryAjax'     => __DIR__ . '/../../ressources/views/pages/getResult.phtml',
+        'help'            => __DIR__ . '/../../ressources/views/admin/help.phtml',
         'landing'         => __DIR__ . '/../../ressources/views/landing.phtml',
         'mentions'        => __DIR__ . '/../../ressources/views/mentions-legales.phtml',
         'mosaique'        => __DIR__ . '/../../ressources/views/pages/products-mosaique.phtml',
@@ -72,11 +73,8 @@ class PageController extends \System\Controller
       $numberOfPages = ceil($rowNumber / $limit);
 
       ob_start();
-
       include(self::VIEWS_PATH['galleryAjax']);
-
       $view = ob_get_contents();
-
       ob_end_clean();
 
       return $view;
@@ -85,11 +83,22 @@ class PageController extends \System\Controller
     public function dev()
     {
         ob_start();
-
         include(self::VIEWS_PATH['dev']);
-
         $view = ob_get_contents();
+        ob_end_clean();
 
+        return $view;
+    }
+
+    public function help()
+    {
+        if (!isLogged()) {
+            $this->redirect('home');
+        }
+        
+        ob_start();
+        include(self::VIEWS_PATH['help']);
+        $view = ob_get_contents();
         ob_end_clean();
 
         return $view;
@@ -98,11 +107,8 @@ class PageController extends \System\Controller
     public function error(){
 
       ob_start();
-
       include(self::VIEWS_PATH['404']);
-
       $view = ob_get_contents();
-
       ob_end_clean();
 
       return $view;
