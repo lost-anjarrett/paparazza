@@ -3,14 +3,20 @@ window.addEventListener('load', function() {
     var editor;
 
     ContentTools.StylePalette.add([
-        new ContentTools.Style('Inset 1 (écarte l\'élément sélectionné du précédent)', 'inset-1', ['p','h2', 'h1']),
-        new ContentTools.Style('Texte noir', 'text-base', ['p','h2','h1']),
-        new ContentTools.Style('Texte gris', 'text-darker', ['p','h2','h1']),
-        new ContentTools.Style('Texte blanc', 'text-white', ['p','h2','h1']),
-        new ContentTools.Style('Fond rouge', 'bg-danger', ['p','h2','h1']),
-        new ContentTools.Style('Fond orange', 'bg-warning', ['p','h2','h1']),
-        new ContentTools.Style('Fond bleu', 'bg-info', ['p','h2','h1']),
-        new ContentTools.Style('Fond vert', 'bg-success', ['p','h2','h1'])
+        new ContentTools.Style('Inset 1 (écarte l\'élément sélectionné du précédent)', 'inset-1', ['p','h2', 'h1', 'li']),
+        new ContentTools.Style('Inset 2 (écarte l\'élément sélectionné du précédent)', 'inset-2', ['p','h2', 'h1', 'li']),
+        new ContentTools.Style('Inset 3 (écarte l\'élément sélectionné du précédent)', 'inset-3', ['p','h2', 'h1', 'li']),
+        new ContentTools.Style('Titre taille 1 (gros)', 'h1', ['h2','h1']),
+        new ContentTools.Style('Titre taille 2', 'h2', ['h2','h1']),
+        new ContentTools.Style('Titre taille 3', 'h3', ['h2','h1']),
+        new ContentTools.Style('Titre taille 4 (petit)', 'h4', ['h2','h1']),
+        new ContentTools.Style('Texte noir', 'text-base', ['p','h2','h1', 'li']),
+        new ContentTools.Style('Texte gris', 'text-darker', ['p','h2','h1', 'li']),
+        new ContentTools.Style('Texte blanc', 'text-white', ['p','h2','h1', 'li']),
+        new ContentTools.Style('Fond rouge', 'bg-danger', ['p','h2','h1', 'li']),
+        new ContentTools.Style('Fond orange', 'bg-warning', ['p','h2','h1', 'li']),
+        new ContentTools.Style('Fond bleu', 'bg-info', ['p','h2','h1', 'li']),
+        new ContentTools.Style('Fond vert', 'bg-success', ['p','h2','h1', 'li'])
     ]);
 
     editor = ContentTools.EditorApp.get();

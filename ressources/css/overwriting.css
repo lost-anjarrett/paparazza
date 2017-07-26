@@ -277,16 +277,6 @@ i.fa {
     float: right;
     margin-left: 0.5em;
 }
-[data-editable] h1 {
-    font-size: 1rem;
-    font-weight: 700;
-    color: #000;
-}
-[data-editable] h2 {
-    font-size: 0.875rem;
-    font-weight: 400;
-    color: #000;
-}
 [data-editable] a {
     color: #3498db;
 }

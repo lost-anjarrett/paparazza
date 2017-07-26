@@ -95,7 +95,7 @@ class PageController extends \System\Controller
     public function mentions()
     {
         $infos = (new Info)->findOneBy('id', 1);
-        
+
         ob_start();
         include(__DIR__ . '/../../ressources/views/mentions-legales.phtml');
         $view = ob_get_contents();
@@ -103,6 +103,29 @@ class PageController extends \System\Controller
         return $view;
     }
 
+    public function savePage()
+    {
+        if (!isLogged()) {
+            $this->redirect('home');
+        }
 
+        $location = [
+            'products' => __DIR__ . '/../../ressources/views/pages/products.phtml'
+        ];
+
+
+        foreach ($_POST as $region => $content) {
+            $html = file_get_contents($location['products']);
+
+            $search = "/(<!-- editable ".$region." -->)([\n\t\r].*)*(<!-- endeditable ".$region." -->)/";
+            $replace = "<!-- editable ".$region." -->\n" . $content . "\n<!-- endeditable ".$region." -->";
+            $html = preg_replace($search,$replace,$html);
+
+            file_put_contents($location['products'], $html);
+        }
+
+        return $location['products'];
+
+    }
 
 }

@@ -53,7 +53,7 @@ $app->post('admin/infos/edit', '\Projet\Controllers\InfoController::edit');
 $app->match('contact', '\Projet\Controllers\MailController::contact');
 
 // PRODUITS - EDITEUR DE TEXTE
-$app->post('save-page', '\Projet\Controllers\ProductController::savePage');
+$app->post('save-page', '\Projet\Controllers\PageController::savePage');
 $app->match('admin/products', 'Projet\Controllers\ProductController::index');
 // BACKUP
 $app->post('admin/products/save-backup', 'Projet\Controllers\BackupController::save');
