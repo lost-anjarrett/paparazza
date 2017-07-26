@@ -14,9 +14,6 @@ class MailController extends \System\Controller
 
     public function contact()
     {
-        $infos = (new Info)->findOneBy('id', 1);
-
-
         if (!empty($_POST)) {
             extract($_POST);
 

@@ -6,6 +6,7 @@ window.addEventListener('load', function() {
         new ContentTools.Style('Inset 1 (écarte l\'élément sélectionné du précédent)', 'inset-1', ['p','h2', 'h1', 'li']),
         new ContentTools.Style('Inset 2 (écarte l\'élément sélectionné du précédent)', 'inset-2', ['p','h2', 'h1', 'li']),
         new ContentTools.Style('Inset 3 (écarte l\'élément sélectionné du précédent)', 'inset-3', ['p','h2', 'h1', 'li']),
+        new ContentTools.Style('Bouton', 'btn btn-default', ['a']),
         new ContentTools.Style('Titre taille 1 (gros)', 'h1', ['h2','h1']),
         new ContentTools.Style('Titre taille 2', 'h2', ['h2','h1']),
         new ContentTools.Style('Titre taille 3', 'h3', ['h2','h1']),

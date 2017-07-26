@@ -8,7 +8,21 @@ use Projet\Models\GalleryImg;
 
 class PageController extends \System\Controller
 {
-
+    const VIEWS_PATH = [
+        '404'         => __DIR__ . '/../../ressources/views/error404.phtml',
+        'dev'         => __DIR__ . '/../../ressources/views/pages/work-in-progress.phtml',
+        'contact'     => __DIR__ . '/../../ressources/views/pages/contact.phtml',
+        'gallery'     => __DIR__ . '/../../ressources/views/pages/gallery.phtml',
+        'galleryAjax' => __DIR__ . '/../../ressources/views/pages/getResult.phtml',
+        'landing'     => __DIR__ . '/../../ressources/views/landing.phtml',
+        'mentions'    => __DIR__ . '/../../ressources/views/mentions-legales.phtml',
+        'mosaique'    => __DIR__ . '/../../ressources/views/pages/products-mosaique.phtml',
+        'partenaires' => __DIR__ . '/../../ressources/views/pages/partenaires.phtml',
+        'pastilles'   => __DIR__ . '/../../ressources/views/pages/products-pastilles.phtml',
+        'prestations' => __DIR__ . '/../../ressources/views/pages/prestations.phtml',
+        'products'    => __DIR__ . '/../../ressources/views/pages/products.phtml',
+        'selling'     => __DIR__ . '/../../ressources/views/pages/selling.phtml'
+    ];
     //@get index.php/landing
 
     public function index($page = '')
@@ -34,7 +48,7 @@ class PageController extends \System\Controller
 
         ob_start();
 
-        include(__DIR__ . '/../../ressources/views/landing.phtml');
+        include(self::VIEWS_PATH['landing']);
 
         $view = ob_get_contents();
 
@@ -57,7 +71,7 @@ class PageController extends \System\Controller
 
       ob_start();
 
-      include(__DIR__ . '/../../ressources/views/pages/getResult.phtml');
+      include(self::VIEWS_PATH['galleryAjax']);
 
       $view = ob_get_contents();
 
@@ -70,7 +84,7 @@ class PageController extends \System\Controller
     {
         ob_start();
 
-        include(__DIR__ . '/../../ressources/views/pages/work-in-progress.phtml');
+        include(self::VIEWS_PATH['dev']);
 
         $view = ob_get_contents();
 
@@ -83,7 +97,7 @@ class PageController extends \System\Controller
 
       ob_start();
 
-      include(__DIR__ . '/../../ressources/views/error404.phtml');
+      include(self::VIEWS_PATH['404']);
 
       $view = ob_get_contents();
 
@@ -97,7 +111,7 @@ class PageController extends \System\Controller
         $infos = (new Info)->findOneBy('id', 1);
 
         ob_start();
-        include(__DIR__ . '/../../ressources/views/mentions-legales.phtml');
+        include(self::VIEWS_PATH['mentions']);
         $view = ob_get_contents();
         ob_end_clean();
         return $view;
@@ -109,22 +123,29 @@ class PageController extends \System\Controller
             $this->redirect('home');
         }
 
-        $location = [
-            'products' => __DIR__ . '/../../ressources/views/pages/products.phtml'
-        ];
-
+        $modified = [];
 
         foreach ($_POST as $region => $content) {
-            $html = file_get_contents($location['products']);
+            $pathName = substr($region, 0, strpos($region, '_') );
+
+            $html = file_get_contents(self::VIEWS_PATH[$pathName]);
 
             $search = "/(<!-- editable ".$region." -->)([\n\t\r].*)*(<!-- endeditable ".$region." -->)/";
             $replace = "<!-- editable ".$region." -->\n" . $content . "\n<!-- endeditable ".$region." -->";
             $html = preg_replace($search,$replace,$html);
 
-            file_put_contents($location['products'], $html);
+            if (file_put_contents(self::VIEWS_PATH[$pathName], $html) !== false) {
+                $modified[] = $pathName;
+            }
         }
 
-        return $location['products'];
+        $response = '';
+
+        foreach ($modified as $filename) {
+            $response .= 'Fichier modifié : '. $filename . "\n";
+        }
+
+        return $response;
 
     }
 

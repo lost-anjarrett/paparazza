@@ -12,7 +12,7 @@
                     <div class="well">
                         <h3 class="well-bottom">Email</h3>
                         <input type="email" class="form-control" name="email" data-constraints="@NotEmpty @Email" value="<?= $infos->getEmail() ?>">
-                        <p>Attention, modifier cette adresse change aussi la destination des mails envoyés via le formulaire de contact. </p>
+                        <p class="bg-warning">Attention, modifier cette adresse ne change pas la destination des mails envoyés via le formulaire de contact. </p>
                     </div>
                     <div class="well" id="fieldAdress1">
                         <h3 class="well-bottom">Adresse 1</h3>

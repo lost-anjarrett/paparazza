@@ -277,9 +277,9 @@ i.fa {
     float: right;
     margin-left: 0.5em;
 }
-[data-editable] a {
+[data-editable] p a {
     color: #3498db;
 }
-[data-editable] a:hover, [data-editable] a:focus {
+[data-editable] p a:hover, [data-editable] p a:focus {
     color: #217dbb;
 }
