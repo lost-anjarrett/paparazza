@@ -2,24 +2,20 @@
 <html lang="fr" class="wide wow-animation">
   <head>
     <!--Site Title-->
-    <title>Murs Digi-sport 2.0 &amp; Bornes connectées | Paparazza</title>
+    <title>Partenaires | Paparazza</title>
     <meta charset="utf-8">
-    <meta name="description" content="Murs Digi-sport 2.0, Location / Vente de bornes connectées, boostez vos évènements avec un mur digital ou nos bornes photos, bornes hashtag, jukebox, livre d'or numérique">
+    <meta name="description" content="Location / Vente de bornes connectées, boostez vos évènements avec nos bornes photos, bornes hashtag, jukebox, digisport 2.0, livre d'or numérique">
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
     <!--Stylesheets-->
     <link rel="icon" href="<?= url('ressources/images/logo-small.png')?>" type="image/x-icon">
 
-
     <!--Bootstrap-->
     <link rel="stylesheet" href="<?= url('ressources/css/style.css')?>">
-    <?php if (isLogged()): ?>
-        <link rel="stylesheet" href="<?= url('ressources/css/content-tools.min.css')?>">
-    <?php endif; ?>
     <link rel="stylesheet" href="<?= url('ressources/css/overwriting.css')?>">
 <!--[if lt IE 10]>
-    <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;"><a href="http://windows.microsoft.com/en-US/internet-explorer/.."><img src="images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
+    <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;"><a href="https://windows.microsoft.com/en-US/internet-explorer/.."><img src="images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
     <script src="js/html5shiv.min.js"></script><![endif]-->
   </head>
 
@@ -59,21 +55,7 @@
 
                 <!--RD Navbar Nav-->
                 <ul class="rd-navbar-nav">
-                  <li><a href="#">Accueil</a></li>
-                  <li><a href="#products">Nos Produits</a>
-                    <ul class="rd-navbar-dropdown">
-                        <li><a href="#digisport">Murs Digi-sport 2.0</a></li>
-                        <li><a href="#hashtag">Borne hashtag</a></li>
-                        <li><a href="#photo">Selfy Station</a></li>
-                        <li><a href="#livre-or">Livre d'or</a></li>
-                        <li><a href="#jukeback">Jukeback</a></li>
-                        <li><a href="#">Lorem Ipsum</a></li>
-                        <li><a href="#selling">Vente</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#prestations">Nos Prestations</a></li>
-                  <li><a href="#gallery">Galerie Photo</a></li>
-                  <li><a href="#contact">Contact</a></li>
+                  <li><a href="<?= url('home') ?>">Retour au site</a></li>
                   <?php if (isLogged()): ?>
                       <li><a href="#"><i class="fa fa-caret-square-o-down" aria-hidden="true"></i></a>
                           <ul class="rd-navbar-dropdown">
@@ -90,8 +72,7 @@
         </div>
         <!--END RD Navbar-->
 
-        <!--SLIDER-->
-        <?php include('pages/slider.phtml') ?>
+
 
       </header>
       <!--
@@ -100,42 +81,30 @@
       ========================================================
       -->
       <main class="page-content undefined">
+        <section class="text-left well">
+          <div class="container container-wide">
+            <div class="row">
+                <div class="col-xs-12 well border-bottom">
+                    <?php if (isset($partnersLogos)): ?>
+                        <?php foreach ($partnersLogos as $logo):?>
+                            <div class="col-xs-6 col-md-3">
+                                <a href="<?= url('uploads/partners/' . $logo->getImgSrc()) ?>" data-lightbox="image" title="<?php $logo->getDescription() ?>">
+                                    <img src="<?= url('uploads/partners/' . $logo->getImgSrc()) ?>" alt="<?php $logo->getDescription() ?>"/>
+                                </a>
+                            </div>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <p>Une erreur est survenue dans le chargement des logos partenaires.</p>
 
+                    <?php endif; ?>
 
-        <!-- Start section -->
-
-        <!-- Mosaique produits -->
-        <?php include('pages/products-mosaique.phtml'); ?>
-
-
-        <!-- Pastilles produits -->
-        <?php include('pages/products-pastilles.phtml'); ?>
-
-
-        <!--Products Section-->
-        <?php include('pages/products.phtml'); ?>
-
-
-        <!-- SELLING -->
-        <?php include('pages/selling.phtml'); ?>
-
-
-        <!-- Prestations-->
-        <?php include('pages/prestations.phtml'); ?>
-
-
-        <!-- Galerie photo -->
-        <?php include('pages/gallery.phtml'); ?>
-
-
-        <!-- Partenaires -->
-        <?php include('pages/partenaires.phtml'); ?>
-
-
-        <!-- Contact -->
-        <?php include('pages/contact.phtml');  ?>
-
-
+                </div>
+                <div class="inset-3 col-md-6 col-md-offset-3 well-bottom">
+                    <a href="<?= url('admin/dashboard') ?>" class="pull-right btn btn-primary btn-sm btn-bg-primary"><i class="fa fa-long-arrow-left" aria-hidden="true"></i> Retour au site</a>
+                </div>
+            </div>
+          </div>
+        </section>
       </main>
       <!--
       ========================================================
@@ -153,10 +122,6 @@
     <script src="<?= url('ressources/js/bootstrap.min.js')?>"></script>
     <!--Additional Functionality Scripts-->
     <script src="<?= url('ressources/js/script.js')?>"></script>
-    <?php if (isLogged()): ?>
-        <script src="<?= url('ressources/js/content-tools.min.js')?>"></script>
-        <script src="<?= url('ressources/js/editor.js')?>"></script>
-    <?php endif; ?>
     <script src="<?= url('ressources/js/overwriting.js')?>"></script>
   </body>
 </html>

@@ -5,29 +5,31 @@ namespace Projet\Controllers;
 use Projet\Models\Info;
 use Projet\Models\SliderImg;
 use Projet\Models\GalleryImg;
+use Projet\Models\PartnersLogo;
 
 class PageController extends \System\Controller
 {
     const VIEWS_PATH = [
-        '404'         => __DIR__ . '/../../ressources/views/error404.phtml',
-        'dev'         => __DIR__ . '/../../ressources/views/pages/work-in-progress.phtml',
-        'contact'     => __DIR__ . '/../../ressources/views/pages/contact.phtml',
-        'gallery'     => __DIR__ . '/../../ressources/views/pages/gallery.phtml',
-        'galleryAjax' => __DIR__ . '/../../ressources/views/pages/getResult.phtml',
-        'landing'     => __DIR__ . '/../../ressources/views/landing.phtml',
-        'mentions'    => __DIR__ . '/../../ressources/views/mentions-legales.phtml',
-        'mosaique'    => __DIR__ . '/../../ressources/views/pages/products-mosaique.phtml',
-        'partenaires' => __DIR__ . '/../../ressources/views/pages/partenaires.phtml',
-        'pastilles'   => __DIR__ . '/../../ressources/views/pages/products-pastilles.phtml',
-        'prestations' => __DIR__ . '/../../ressources/views/pages/prestations.phtml',
-        'products'    => __DIR__ . '/../../ressources/views/pages/products.phtml',
-        'selling'     => __DIR__ . '/../../ressources/views/pages/selling.phtml'
+        '404'             => __DIR__ . '/../../ressources/views/error404.phtml',
+        'dev'             => __DIR__ . '/../../ressources/views/pages/work-in-progress.phtml',
+        'contact'         => __DIR__ . '/../../ressources/views/pages/contact.phtml',
+        'gallery'         => __DIR__ . '/../../ressources/views/pages/gallery.phtml',
+        'galleryAjax'     => __DIR__ . '/../../ressources/views/pages/getResult.phtml',
+        'landing'         => __DIR__ . '/../../ressources/views/landing.phtml',
+        'mentions'        => __DIR__ . '/../../ressources/views/mentions-legales.phtml',
+        'mosaique'        => __DIR__ . '/../../ressources/views/pages/products-mosaique.phtml',
+        'partenaires'     => __DIR__ . '/../../ressources/views/pages/partenaires.phtml',
+        'parten_one_page' => __DIR__ . '/../../ressources/views/partenaires.phtml',
+        'pastilles'       => __DIR__ . '/../../ressources/views/pages/products-pastilles.phtml',
+        'prestations'     => __DIR__ . '/../../ressources/views/pages/prestations.phtml',
+        'products'        => __DIR__ . '/../../ressources/views/pages/products.phtml',
+        'selling'         => __DIR__ . '/../../ressources/views/pages/selling.phtml'
     ];
     //@get index.php/landing
 
     public function index($page = '')
     {
-        $infos = (new Info)->findOneBy('id', 1);
+        $infos = (new Info)->find(1);
 
         $slides = (new SliderImg)->findAll();
         //Getting images for the Gallery
@@ -108,10 +110,22 @@ class PageController extends \System\Controller
 
     public function mentions()
     {
-        $infos = (new Info)->findOneBy('id', 1);
+        $infos = (new Info)->find(1);
 
         ob_start();
         include(self::VIEWS_PATH['mentions']);
+        $view = ob_get_contents();
+        ob_end_clean();
+        return $view;
+    }
+
+    public function partenaires()
+    {
+        $infos = (new Info)->find(1);
+        $partnersLogos = (new PartnersLogo)->findAll();
+
+        ob_start();
+        include(self::VIEWS_PATH['parten_one_page']);
         $view = ob_get_contents();
         ob_end_clean();
         return $view;
