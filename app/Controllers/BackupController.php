@@ -29,15 +29,11 @@ class BackupController extends \System\Controller
         // checkCsrf();
         extract($_POST);
 
-        $content = file_get_contents(static::FILES_LOCATION[0]);
-
-        if ($content === false) {
-            $this->redirect('admin/products?error="Getting content"');
-        }
 
         $backup = (new Backup)->setDescription($description)
-                ->saveFile($content)
-                ->create();
+            ->saveFiles()
+            ->create()
+        ;
 
         $this->redirect('admin/products');
     }
@@ -60,18 +56,11 @@ class BackupController extends \System\Controller
             }
 
             if (!$backup) {
-                $errors[] = 'Désolé nous n\'avons pas trouvé cet utilisateur dans la base de données';
+                $errors[] = 'Désolé nous n\'avons pas trouvé cette backup dans la base de données';
             }
 
             if (empty($errors)) {
-                $content = $backup->getContent();
-
-                if ($content) {
-                    file_put_contents(static::FILES_LOCATION[0], $content);
-                }
-                else {
-                    $this->redirect('admin/products?status=pbRecupContent');
-                }
+                $backup->loadFiles();
             }
         }
 

@@ -1,0 +1,105 @@
+<section id="contact" class="contact-form text-center text-sm-left well well-sm">
+  <div class="container container-wide">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 text-center well-bottom">
+        <h1>CONTACTEZ NOUS</h1>
+        <hr>
+        <div data-editable data-name="contact_text">
+            <!-- editable contact_text -->
+            <p>Nos services vous intéressent ? Contactez-nous via le formulaire ci-dessous et nous vous répondrons dans les plus brefs délais.</p>
+            <!-- endeditable contact_text -->
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <div class="row flow-offset-3">
+          <div class="col-md-3 col-md-offset-1 text-center text-md-left">
+            <div class="contact-info-2">
+              <h4>Adresse</h4>
+              <address class="small text-darker"><?= esc($infos->getAdress1()) ?><br>
+                  <?php if (!empty($infos->getCompltAdress1())): ?>
+                      <?= esc($infos->getCompltAdress1()) ?><br>
+                  <?php endif; ?>
+                  <?= esc($infos->getCity1()) ?>, <?= esc($infos->getCp1()) ?>
+              </address>
+              <?php if (!empty($infos->getAdress2())): ?>
+                  <h4>Adresse 2</h4>
+                  <address class="small text-darker"><?= esc($infos->getAdress2()) ?><br>
+                      <?php if (!empty($infos->getCompltAdress2())): ?>
+                          <?= esc($infos->getCompltAdress2()) ?><br>
+                      <?php endif; ?>
+                      <?= esc($infos->getCity2()) ?>, <?= esc($infos->getCp2()) ?>
+                  </address>
+              <?php endif; ?>
+              <h4>Téléphone</h4>
+              <address class="small text-darker"><a href="callto:<?= esc($infos->getTel1()) ?>"><?= esc($infos->getTel1()) ?></a></address>
+              <?php if (!empty($infos->getTel2())): ?>
+                  <address class="small text-darker"><a href="callto:<?= esc($infos->getTel2()) ?>"><?= esc($infos->getTel2()) ?></a></address>
+              <?php endif; ?>
+              <h4>Email</h4>
+              <address class="small text-darker"><a href="mailto:<?= esc($infos->getEmail()) ?>"><?= esc($infos->getEmail()) ?></a></address>
+            </div>
+            <ul class="list-inline big text-dark">
+              <li><a href="https://www.instagram.com/paparazza_lyon" class="fa-instagram"></a></li>
+              <li><a href="https://fr-fr.facebook.com/bornesconnectees" class="fa-facebook"></a></li>
+            </ul>
+          </div>
+          <!-- FORM -->
+          <div class="col-md-7">
+              <?php if (isset($errors)) : ?>
+                  <div class="bg-danger text-white text-center">
+                      <?php foreach ($errors as $error): ?>
+                          <p><?= $error ?></p>
+                      <?php endforeach; ?>
+                  </div>
+              <?php endif; ?>
+            <form method="post" action="<?= url('contact') ?>" class="rd-mailform">
+              <div class="form-group">
+                <label for="exampleInputText1"></label>
+                <input type="text" placeholder="Votre Nom" name="name" required id="exampleInputText1" class="form-control"
+                <?php if (isset($errors)): ?>
+                    value="<?= $name ?>"
+                <?php endif; ?>>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1"></label>
+                <input placeholder="Votre email" type="text" name="email" required id="exampleInputEmail1" class="form-control"
+                <?php if (isset($errors)): ?>
+                    value="<?= $email ?>"
+                <?php endif; ?>>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputText2"></label>
+                <input type="text" placeholder="Téléphone" name="tel" required id="exampleInputText2" class="form-control"
+                <?php if (isset($errors)): ?>
+                    value="<?= $tel ?>"
+                <?php endif; ?>>
+              </div>
+              <div class="form-group">
+                  <p>Merci de préciser le type et l'objet de votre demande</p>
+                <label for="exampleSelect1"></label>
+                <select id="exampleSelect1" name="formType">
+                    <option value="contact">Contact</option>
+                    <option value="devis">Devis</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputText3"></label>
+                <input type="text" placeholder="Objet de la demande" name="subject" required id="exampleInputText3" class="form-control"
+                <?php if (isset($errors)): ?>
+                    value="<?= $subject ?>"
+                <?php endif; ?>>
+              </div>
+              <div class="form-group textarea">
+                <label for="exampleTextarea"></label>
+                <textarea id="exampleTextarea" rows="3" placeholder="Votre message ici..." name="message" required class="form-control"><?php if (isset($errors)) {echo $message;} ?></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary">Envoyer</button>
+              <div class="mfInfo"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

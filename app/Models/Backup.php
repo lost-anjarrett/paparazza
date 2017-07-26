@@ -8,10 +8,20 @@ use DateTime;
 class Backup extends Model
 {
 
+    const TABLE = 'ppz_backups';
     const REPO = 'backups';
-    const TABLE = 'ppz_backup';
+    const FILES_LOCATION = [
+        __DIR__ . '/../../ressources/views/pages/contact.phtml',
+        __DIR__ . '/../../ressources/views/pages/gallery.phtml',
+        __DIR__ . '/../../ressources/views/pages/partenaires.phtml',
+        __DIR__ . '/../../ressources/views/pages/prestations.phtml',
+        __DIR__ . '/../../ressources/views/pages/products-mosaique.phtml',
+        __DIR__ . '/../../ressources/views/pages/products-pastilles.phtml',
+        __DIR__ . '/../../ressources/views/pages/products.phtml',
+        __DIR__ . '/../../ressources/views/pages/selling.phtml'
+    ];
 
-    protected $filename;
+    protected $folder;
     protected $description;
     protected $added_at;
 
@@ -60,25 +70,25 @@ class Backup extends Model
 
 
     /**
-     * Get the value of Filename
+     * Get the value of Folder
      *
      * @return mixed
      */
-    public function getFilename()
+    public function getFolder()
     {
-        return $this->filename;
+        return $this->folder;
     }
 
     /**
-     * Set the value of Filename
+     * Set the value of Folder
      *
-     * @param mixed filename
+     * @param mixed folder
      *
      * @return self
      */
-    public function setFilename($filename)
+    public function setFolder($folder)
     {
-        $this->filename = $filename;
+        $this->folder = $folder;
 
         return $this;
     }
@@ -107,22 +117,63 @@ class Backup extends Model
         return $this;
     }
 
-    public function saveFile($content){
+    /**
+     * Copy the files to save in the backup repository
+     *
+     * @return self
+     */
+    public function saveFiles(){
+        // Nomme le dossier d'après la date/heure courante
+        $this->folder = (new DateTime)->format('Y-m-d_H-i-s');
+        $backupFolderPath = $this->getFolderPath(); // génère le chemin correspondant
+        mkdir($backupFolderPath); // crée le dossier
 
-        $this->filename = (new DateTime)->format('Y-m-d_H-i-s');
-        $this->filename .= '.phtml';
-        $location = __DIR__ . '/../../ressources/views/'.static::REPO.'/'.$this->filename;
+        // Sauvegarde un à un les fichiers éditables (renseignés dans FILES_LOCATION)
+        foreach (static::FILES_LOCATION as $location) {
+            $content = file_get_contents($location);
+            if ($content === false) return false;
 
-        if(file_put_contents($location, $content) === false){
-            redirect('../products?error="Saving file"');
+            $backupFileLocation = $this->getBackupFileLocation($location); // Donne le chemin du fichier à écrire de type ../views/backups/{date}/nom-de-fichier.phtml
+
+            if(file_put_contents($backupFileLocation, $content) === false) return false;
         }
 
         return $this;
-
     }
 
-    public function deleteFile($img) {
-        unlink(__DIR__.'/../../ressources/views/'.static::REPO.'/'.$this->filename);
+    public function loadFiles()
+    {
+        $backupFolderPath = $this->getFolderPath();
+
+        foreach (self::FILES_LOCATION as $location) {
+            $backupFileLocation = $this->getBackupFileLocation($location);
+
+            $content = file_get_contents($backupFileLocation);
+            if ($content === false) return false;
+
+            if(file_put_contents($location, $content) === false) return false;
+        }
+
+        return $this;
+    }
+
+    public function getFilenameFromLocation($location)
+    {
+        return substr($location, strrpos($location, '/')+1);
+    }
+
+    public function getFolderPath()
+    {
+        return __DIR__.'/../../ressources/views/'.static::REPO.'/'.$this->folder;
+    }
+
+    public function getBackupFileLocation($location)
+    {
+        return $this->getFolderPath().'/'.$this->getFilenameFromLocation($location);
+    }
+
+    public function deleteFile() {
+        unlink($this->getFolderPath());
         return $this;
     }
 
