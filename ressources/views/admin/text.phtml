@@ -3,24 +3,25 @@
     <div class="container container-wide bg-white">
         <div class="row">
             <div class="col-md-6 col-md-offset-3 well">
-                <h3>Modifier le texte d'un produit</h3>
-                <p class="text-left">Pour modifier le texte explicatif des produits, vous devez : </p>
+                <h3>Modifier du texte</h3>
+                <p class="text-left">Pour modifier le texte explicatif des produits, etc vous devez : </p>
                 <ol class="text-left instructions">
-                    <li>1.  aller sur la section produits de la page d'accueil</li>
+                    <li>1.  aller sur la page d'accueil</li>
                     <li>2.  activer l'éditeur en ligne (bouton bleu à gauche de la barre de navigation)</li>
                     <li>3.  faire vos modifications directement sur la page</li>
                     <li>4.  sauvegarder votre travail</li>
                 </ol>
+                <a href="<?= url('home') ?>" class="btn btn-primary">Aller à la page d'accueil</a>
                 <a href="<?= url('home#products') ?>" class="btn btn-primary">Aller à la section produits</a>
             </div>
             <div class="col-md-6 col-md-offset-3 well-bottom">
                 <p class="bg-warning text-white"><b>Attention</b>, les modifications sont écrites directement dans le fichier, par conséquent elles sont mises en ligne dès que vous sauvegardez ! Pensez à faire une sauvegarde-backup au préalable, au cas où...</p>
                 <p>Pour plus d'informations sur comment utiliser l'éditeur, <br><a class="text-primary" target="_blank" href="<?= url('admin/help') ?>">consultez la page d'aide (ici)</a>.</p>
             </div>
-            <div class="col-md-6 col-md-offset-3 well">
+            <div class="col-md-6 col-md-offset-3 well" id="backup">
                 <h3>Faire une sauvegarde-backup</h3>
-                <p class="text-left well-bottom">Enregistre le contenu de la section produits tel qu'il est à l'instant où vous faites le backup.</p>
-                <form action="<?= url('admin/products/save-backup') ?>" method="post">
+                <p class="text-left well-bottom">Enregistre le contenu de la page d'accueil tel qu'il est à l'instant où vous faites le backup.</p>
+                <form action="<?= url('admin/text/save-backup') ?>" method="post">
                     <label for="backupDescription"></label>
                     <input type="text" name="description" class="form-control" placeholder="Description (facultatif)" id="backupDescription" maxlength="200">
                     <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
@@ -31,7 +32,7 @@
                 <h3>Récupérer une sauvegarde-backup</h3>
                 <p class="text-left">Choisissez une sauvegarde parmi la liste disponible</p>
                 <?php if (isset($backups)): ?>
-                    <form id="load-backup" action="<?= url('admin/products/load-backup') ?>" method="post" data-confirm-suppr="true">
+                    <form id="load-backup" action="<?= url('admin/text/load-backup') ?>" method="post" data-confirm-suppr="true">
                         <select class="form-control" name="id">
                             <option value="0" selected="true">date &amp; heure -- <i>description</i></option>
                             <?php foreach ($backups as $backup): ?>

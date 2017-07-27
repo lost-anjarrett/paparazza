@@ -35,7 +35,7 @@ class BackupController extends \System\Controller
             ->create()
         ;
 
-        $this->redirect('admin/products');
+        $this->redirect('admin/text');
     }
 
     public function load()
@@ -64,6 +64,6 @@ class BackupController extends \System\Controller
             }
         }
 
-        $this->redirect('admin/products');
+        $this->redirect('admin/text');
     }
 }

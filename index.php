@@ -38,7 +38,7 @@ $app->match('admin/manager/edit', 'Projet\Controllers\AdminController::edit');
 $app->post('admin/manager/delete/{id}', 'Projet\Controllers\AdminController::delete')
     ->assert('id', '\d+');
 // PRODUITS
-$app->match('admin/products', 'Projet\Controllers\ProductController::index');
+$app->match('admin/text', 'Projet\Controllers\TextController::index');
 // INFOS PUBLIQUES
 $app->match('admin/infos', '\Projet\Controllers\InfoController::index');
 $app->post('admin/infos/edit', '\Projet\Controllers\InfoController::edit');
@@ -49,8 +49,8 @@ $app->post('save-page', '\Projet\Controllers\PageController::savePage');
 // HELP
 $app->match('admin/help', '\Projet\Controllers\PageController::help');
 // BACKUP
-$app->post('admin/products/save-backup', 'Projet\Controllers\BackupController::save');
-$app->post('admin/products/load-backup', 'Projet\Controllers\BackupController::load');
+$app->post('admin/text/save-backup', 'Projet\Controllers\BackupController::save');
+$app->post('admin/text/load-backup', 'Projet\Controllers\BackupController::load');
 // MENTIONS LEGALES
 $app->match('mentions-legales', '\Projet\Controllers\PageController::mentions');
 // PARTENAIRES
